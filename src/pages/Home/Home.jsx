@@ -1,83 +1,51 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-/*
-  index.html <head> ichiga qo'shing:
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@500;600&display=swap" rel="stylesheet" />
-*/
-
-const C = {
-  bg:             "#0d9480",
-  progressYellow: "#e2c229",
-  progressDark:   "#0a7a6a",
-  logo:           "#c9d83a",
-  mutedTeal:      "#4dbfae",
-  btnBorder:      "rgba(255,255,255,0.30)",
-  btnBorderHov:   "rgba(255,255,255,0.55)",
-  activeBg:       "#ffffff",
-  activeText:     "#0d7a69",
-  teamName:       "rgba(255,255,255,0.88)",
-  divider:        "rgba(255,255,255,0.28)",
-  startYellow:    "#f0c525",
-  startYellowHov: "#f5d040",
-  startText:      "#0a6659",
-};
-
-const F = {
-  condensed: "'Barlow Condensed', sans-serif",
-  regular:   "'Barlow', sans-serif",
-};
+import useGameStore from "../../store/useGameStore";
 
 const SUBJECTS = [
-  ["MATHEMATICS", "ENGLISH",   "PHYSICS",   "HISTORY"],
-  ["BIOLOGY",     "CHEMISTRY", "GEOGRAPHY", "ART"],
+  "MATHEMATICS",
+  "GEOGRAPHY",
 ];
 
-/* ── Subject Button ── */
-function SubjectButton({ label, active, onSelect, delay }) {
-  const [pressed, setPressed] = useState(false);
-  const [visible, setVisible] = useState(false);
+const TEAM_COLORS = {
+  1: { dot: "#dc2626", pill: "#fef2f2", pillBorder: "#fca5a5", pillText: "#b91c1c" },
+  2: { dot: "#2563eb", pill: "#eff6ff", pillBorder: "#93c5fd", pillText: "#1d4ed8" },
+};
+
+/* ── Subject Button ─────────────────────────────────────── */
+function SubjectBtn({ label, active, onClick, delay }) {
+  const [hov,  setHov]  = useState(false);
+  const [pres, setPres] = useState(false);
+  const [vis,  setVis]  = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), delay);
+    const t = setTimeout(() => setVis(true), delay);
     return () => clearTimeout(t);
   }, [delay]);
 
-  const handleClick = () => {
-    setPressed(true);
-    setTimeout(() => setPressed(false), 180);
-    onSelect();
-  };
-
   return (
     <button
-      onClick={handleClick}
-      onMouseDown={() => setPressed(true)}
-      onMouseUp={() => setPressed(false)}
-      onMouseLeave={() => setPressed(false)}
+      onClick={onClick}
+      onMouseEnter={() => !active && setHov(true)}
+      onMouseLeave={() => { setHov(false); setPres(false); }}
+      onMouseDown={() => setPres(true)}
+      onMouseUp={() => setPres(false)}
       style={{
-        fontFamily: F.regular,
+        fontFamily: "var(--f-regular)",
         fontWeight: 600,
-        fontSize: "clamp(11px, 1.1vw, 15px)",
+        fontSize: "clamp(11px, 1.05vw, 14px)",
         letterSpacing: "0.18em",
         textTransform: "uppercase",
-        color:           active ? C.activeText : "#ffffff",
-        backgroundColor: active ? C.activeBg   : "transparent",
-        border: `2px solid ${active ? "#ffffff" : C.btnBorder}`,
+        color:           active ? "var(--teal-dark)" : "#fff",
+        backgroundColor: active ? "#fff" : hov ? "rgba(255,255,255,0.1)" : "transparent",
+        border: `2px solid ${active ? "#fff" : hov ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.3)"}`,
         borderRadius: 14,
-        padding: "clamp(16px, 2vh, 24px) 12px",
+        padding: "clamp(15px, 2vh, 22px) 12px",
         cursor: "pointer",
         width: "100%",
-        transition: "background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, opacity 0.4s ease, transform 0.4s ease",
-        opacity:   visible ? 1 : 0,
-        transform: pressed
-          ? "scale(0.94)"
-          : visible
-          ? "scale(1) translateY(0)"
-          : "scale(0.96) translateY(10px)",
-        userSelect: "none",
+        transition: "background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s",
+        transform: pres ? "scale(0.93)" : vis ? "scale(1) translateY(0)" : "scale(0.95) translateY(12px)",
+        opacity: vis ? 1 : 0,
+        // transition already covers transform + opacity via the transition property
       }}
     >
       {label}
@@ -85,145 +53,89 @@ function SubjectButton({ label, active, onSelect, delay }) {
   );
 }
 
-/* ── Team Block ── */
-function TeamBlock({ name, delay }) {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), delay);
-    return () => clearTimeout(t);
-  }, [delay]);
+/* ── Landing Page ───────────────────────────────────────── */
+export default function LandingPage() {
+  const startGame  = useGameStore((s) => s.startGame);
+  const [selected, setSelected] = useState("MATHEMATICS");
+  const [startHov, setStartHov] = useState(false);
+  const [startPres, setStartPres] = useState(false);
 
-  return (
-    <div style={{
-      textAlign: "center",
-      opacity: visible ? 1 : 0,
-      transform: visible ? "translateY(0)" : "translateY(16px)",
-      transition: "opacity 0.5s ease, transform 0.5s ease",
-    }}>
-      <p style={{
-        fontFamily: F.regular,
-        fontWeight: 500,
-        fontSize: "clamp(11px, 1vw, 13px)",
-        letterSpacing: "0.44em",
-        color: C.mutedTeal,
-        textTransform: "uppercase",
-        margin: "0 0 5px",
-      }}>
-        READY
-      </p>
-      <h2 style={{
-        fontFamily: F.condensed,
-        fontWeight: 800,
-        fontSize: "clamp(32px, 4vw, 52px)",
-        color: C.teamName,
-        letterSpacing: "0.06em",
-        textTransform: "uppercase",
-        margin: 0,
-        lineHeight: 1,
-        userSelect: "none",
-      }}>
-        {name}
-      </h2>
-    </div>
-  );
-}
-
-/* ── Main Page ── #####################################################################################################################*/ 
-export default function QuizGame() {
-  const [selected, setSelected]     = useState("MATHEMATICS");
-  const [startHov, setStartHov]     = useState(false);
-  const [startPress, setStartPress] = useState(false);
-
-  const [titleVisible,   setTitleVisible]   = useState(false);
-  const [subtitleVisible, setSubtitleVisible] = useState(false);
-  const [teamsVisible,   setTeamsVisible]   = useState(false);
-  const [startVisible,   setStartVisible]   = useState(false);
-
-  const navigate = useNavigate()
+  // Staggered visibility triggers
+  const [t, setT] = useState({
+    logo: false, title: false, sub: false,
+    teams: false, start: false,
+  });
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setTitleVisible(true),    100),
-      setTimeout(() => setSubtitleVisible(true), 300),
-      setTimeout(() => setTeamsVisible(true),    700),
-      setTimeout(() => setStartVisible(true),    900),
+      setTimeout(() => setT((p) => ({ ...p, logo:  true })),  80),
+      setTimeout(() => setT((p) => ({ ...p, title: true })),  180),
+      setTimeout(() => setT((p) => ({ ...p, sub:   true })),  320),
+      setTimeout(() => setT((p) => ({ ...p, teams: true })),  700),
+      setTimeout(() => setT((p) => ({ ...p, start: true })),  860),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
   return (
     <div style={{
-      height: "100vh",
-      width: "100%",
-      overflow: "hidden",
-      backgroundColor: C.bg,
-      display: "flex",
-      flexDirection: "column",
-      fontFamily: F.regular,
+      height: "100vh", width: "100%", overflow: "hidden",
+      backgroundColor: "#0d9480",
+      display: "flex", flexDirection: "column",
+      fontFamily: "var(--f-regular)",
     }}>
-
-      {/* Progress Bar */}
+      {/* Progress bar */}
       <div style={{ display: "flex", height: 6, flexShrink: 0 }}>
-        <div style={{ width: "32%", backgroundColor: C.progressYellow }} />
-        <div style={{ flex: 1,      backgroundColor: C.progressDark  }} />
+        <div style={{ width: "32%", background: "var(--yellow)" }} />
+        <div style={{ flex: 1,      background: "var(--teal-dark)" }} />
       </div>
 
       {/* Logo */}
-      <header style={{ padding: "clamp(14px, 2vh, 22px) clamp(20px, 3vw, 40px) 0", flexShrink: 0 }}>
+      <header style={{ padding: "clamp(14px,2vh,22px) clamp(20px,3vw,40px) 0", flexShrink: 0 }}>
         <span style={{
-          fontFamily: F.condensed,
-          fontWeight: 700,
+          fontFamily: "var(--f-condensed)", fontWeight: 700,
           fontSize: "clamp(13px, 1.2vw, 16px)",
-          letterSpacing: "0.28em",
-          color: C.logo,
-          textTransform: "uppercase",
-          userSelect: "none",
+          letterSpacing: "0.28em", color: "var(--logo)",
+          textTransform: "uppercase", userSelect: "none",
+          display: "inline-block",
+          opacity:   t.logo ? 1 : 0,
+          transform: t.logo ? "translateY(0)" : "translateY(-12px)",
+          transition: "opacity 0.5s ease, transform 0.5s ease",
         }}>
-          Pratoozle
+          KINETIC GALLERY
         </span>
       </header>
 
       {/* Main */}
       <main style={{
-        flex: 1,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "0 clamp(20px, 4vw, 48px) clamp(16px, 3vh, 40px)",
+        flex: 1, minHeight: 0,
+        display: "flex", flexDirection: "column",
+        alignItems: "center", justifyContent: "center",
+        padding: "0 clamp(20px,4vw,48px) clamp(16px,3vh,36px)",
         textAlign: "center",
-        gap: 0,
-        minHeight: 0,
       }}>
-
         {/* Title */}
         <h1 style={{
-          fontFamily: F.condensed,
-          fontWeight: 800,
+          fontFamily: "var(--f-condensed)", fontWeight: 800,
           fontSize: "clamp(72px, 13vw, 148px)",
-          color: "#ffffff",
-          lineHeight: 0.90,
-          letterSpacing: "-0.01em",
-          margin: 0,
-          userSelect: "none",
-          opacity: titleVisible ? 1 : 0,
-          transform: titleVisible ? "translateY(0)" : "translateY(-24px)",
-          transition: "opacity 0.6s ease, transform 0.6s ease",
+          color: "#fff", lineHeight: 0.9,
+          letterSpacing: "-0.01em", margin: 0, userSelect: "none",
+          opacity:   t.title ? 1 : 0,
+          transform: t.title ? "translateY(0)" : "translateY(-24px)",
+          transition: "opacity 0.6s ease, transform 0.6s cubic-bezier(.34,1.2,.64,1)",
         }}>
-          Pratoozle
+          QUIZ GAME
         </h1>
 
         {/* Subtitle */}
         <p style={{
-          fontFamily: F.regular,
-          fontWeight: 500,
+          fontFamily: "var(--f-regular)", fontWeight: 500,
           fontSize: "clamp(12px, 1.1vw, 15px)",
-          letterSpacing: "0.38em",
-          color: C.mutedTeal,
+          letterSpacing: "0.38em", color: "#4dbfae",
           textTransform: "uppercase",
-          margin: "clamp(12px, 1.8vh, 20px) 0 clamp(20px, 3.5vh, 44px)",
-          opacity: subtitleVisible ? 1 : 0,
-          transform: subtitleVisible ? "translateY(0)" : "translateY(10px)",
+          margin: "clamp(12px,1.8vh,20px) 0 clamp(20px,3.5vh,44px)",
+          opacity:   t.sub ? 1 : 0,
+          transform: t.sub ? "translateY(0)" : "translateY(10px)",
           transition: "opacity 0.5s ease, transform 0.5s ease",
         }}>
           CHOOSE A SUBJECT
@@ -231,96 +143,104 @@ export default function QuizGame() {
 
         {/* Subject Grid */}
         <div style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "clamp(10px, 1.4vh, 16px)",
+          display: "grid",
+          gridTemplateColumns: "repeat(2, minmax(200px, 320px))",
+          gap: "clamp(12px,1.8vw,20px)",
+          justifyContent: "center",
           width: "100%",
-          maxWidth: 900,
+          maxWidth: 720,
         }}>
-          {SUBJECTS.map((row, ri) => (
-            <div key={ri} style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "clamp(10px, 1.4vw, 16px)",
-            }}>
-              {row.map((subj, ci) => (
-                <SubjectButton
-                  key={subj}
-                  label={subj}
-                  active={selected === subj}
-                  onSelect={() => setSelected(subj)}
-                  delay={380 + (ri * 4 + ci) * 55}
-                />
-              ))}
-            </div>
+          {SUBJECTS.map((subj, ci) => (
+            <SubjectBtn
+              key={subj}
+              label={subj}
+              active={selected === subj}
+              onClick={() => setSelected(subj)}
+              delay={380 + ci * 90}
+            />
           ))}
         </div>
 
         {/* Teams */}
         <div style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "clamp(28px, 5vw, 60px)",
-          marginTop: "clamp(24px, 4vh, 58px)",
-          opacity: teamsVisible ? 1 : 0,
-          transform: teamsVisible ? "translateY(0)" : "translateY(16px)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          gap: "clamp(28px,5vw,60px)", marginTop: "clamp(22px,4vh,56px)",
+          opacity:   t.teams ? 1 : 0,
+          transform: t.teams ? "translateY(0)" : "translateY(16px)",
           transition: "opacity 0.5s ease, transform 0.5s ease",
         }}>
-          <TeamBlock name="TEAM 1" delay={720} />
-          <div style={{
-            width: 52,
-            height: 2,
-            backgroundColor: C.divider,
-            borderRadius: 1,
-            flexShrink: 0,
-          }} />
-          <TeamBlock name="TEAM 2" delay={780} />
+          {[1, 2].map((n, i) => (
+            <div key={n} style={{ display: "flex", alignItems: "center", gap: i === 0 ? "clamp(28px,5vw,60px)" : 0 }}>
+              {i === 0 && <TeamBlock n={1} />}
+              {i === 0 && (
+                <div style={{
+                  width: 52, height: 2,
+                  background: "rgba(255,255,255,0.28)",
+                  flexShrink: 0,
+                }} />
+              )}
+              {i === 1 && <TeamBlock n={2} />}
+            </div>
+          ))}
         </div>
 
-        {/* Start Button */}
+        {/* Start Game Button */}
         <button
           onMouseEnter={() => setStartHov(true)}
-          onMouseLeave={() => { setStartHov(false); setStartPress(false); }}
-          onMouseDown={() => setStartPress(true)}
-          onMouseUp={() => setStartPress(false)}
-          onClick={() => navigate("/game")}
+          onMouseLeave={() => { setStartHov(false); setStartPres(false); }}
+          onMouseDown={() => setStartPres(true)}
+          onMouseUp={() => setStartPres(false)}
+          onClick={() => startGame(selected.toLowerCase())}
           style={{
-            marginTop: "clamp(24px, 4.5vh, 68px)",
-            fontFamily: F.regular,
-            fontWeight: 600,
+            marginTop: "clamp(22px,4.5vh,64px)",
+            fontFamily: "var(--f-regular)", fontWeight: 600,
             fontSize: "clamp(12px, 1.1vw, 15px)",
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: C.startText,
-            backgroundColor: startHov ? C.startYellowHov : C.startYellow,
-            border: "none",
-            borderRadius: 16,
-            padding: "clamp(18px, 2.2vh, 26px) 0",
+            letterSpacing: "0.22em", textTransform: "uppercase",
+            color: "var(--yellow-text)",
+            backgroundColor: startHov ? "var(--yellow-hover)" : "var(--yellow)",
+            border: "none", borderRadius: 16,
+            padding: "clamp(18px,2.2vh,24px) 0",
             width: "min(340px, 88vw)",
             cursor: "pointer",
-            transition: "background-color 0.15s ease, transform 0.12s ease, opacity 0.5s ease",
-            transform: startPress
-              ? "scale(0.96)"
-              : startHov
-              ? "translateY(-2px)"
-              : "translateY(0)",
-            opacity: startVisible ? 1 : 0,
+            transition: "background 0.15s, transform 0.12s, opacity 0.5s",
+            transform: startPres ? "scale(0.95)" : startHov ? "translateY(-2px)" : "translateY(0)",
+            opacity: t.start ? 1 : 0,
             userSelect: "none",
           }}
         >
           START GAME
         </button>
       </main>
+    </div>
+  );
+}
 
-      {/* Responsive */}
-      <style>{`
-        @media (max-width: 640px) {
-          .qg-subject-row {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-      `}</style>
+function TeamBlock({ n }) {
+  const tc = TEAM_COLORS[n];
+  return (
+    <div style={{ textAlign: "center" }}>
+      <div style={{
+        display: "inline-flex", alignItems: "center", gap: 7,
+        fontFamily: "var(--f-condensed)", fontWeight: 700,
+        fontSize: "clamp(12px,1.2vw,15px)", letterSpacing: "0.14em",
+        textTransform: "uppercase",
+        color: tc.pillText, background: tc.pill,
+        border: `1.5px solid ${tc.pillBorder}`,
+        borderRadius: 100, padding: "3px 14px 3px 10px",
+        marginBottom: 6, userSelect: "none",
+      }}>
+        <span style={{ width: 8, height: 8, borderRadius: "50%", background: tc.dot, flexShrink: 0 }} />
+        TEAM {n}
+      </div>
+      <div style={{
+        fontFamily: "var(--f-condensed)", fontWeight: 800,
+        fontSize: "clamp(30px,4vw,50px)",
+        color: "rgba(255,255,255,0.85)",
+        letterSpacing: "0.06em", textTransform: "uppercase",
+        lineHeight: 1, userSelect: "none",
+      }}>
+        READY
+      </div>
     </div>
   );
 }

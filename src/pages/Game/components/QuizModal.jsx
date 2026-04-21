@@ -1,90 +1,52 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ArrowRight, Check, X } from "lucide-react";
+import useGameStore from "../../../store/useGameStore";
 
-/*
-  Props:
-    question  – see QUESTION_EXAMPLES below for shape
-    onClose   – called with (isCorrect: boolean) when done
-    teamName  – e.g. "TEAM 1"
-*/
-
-// ── Question shape examples ───────────────────────────────
-export const QUESTION_EXAMPLES = {
-  multipleChoice: {
-    type: "multiple_choice",
-    badge: "Multiple Choice",
-    text: "What is the capital of France?",
-    options: ["Paris", "Lyon", "Marseille", "Bordeaux"],
-    answer: "Paris",
-    points: 10,
-  },
-  fillBlank: {
-    type: "fill_blank",
-    badge: "Fill in the Blank",
-    text: "The Great Wall of China was built during the _____ dynasty.",
-    answer: "ming",
-    displayAnswer: "Ming",
-    points: 15,
-  },
-  trueFalse: {
-    type: "true_false",
-    badge: "True or False",
-    text: "The Amazon River is the longest river in the world.",
-    answer: false,
-    points: 5,
-  },
-};
-
-// ── Constants ─────────────────────────────────────────────
 const TIMER_TOTAL   = 45;
-const CIRCUMFERENCE = 2 * Math.PI * 24; // r=24
+const CIRCUMFERENCE = 2 * Math.PI * 24;
 
-const C = {
-  teal:       "#0d9480",
-  tealDark:   "#0a7a6a",
-  tealLight:  "#e8f5f2",
-  tealBorder: "#9eddd5",
-  yellow:     "#f0c525",
-  yellowHov:  "#f5d040",
-  yellowText: "#0a6659",
-  red:        "#dc2626",
-  green:      "#22c55e",
-};
-
-const F = {
-  condensed: "'Barlow Condensed', sans-serif",
-  regular:   "'Barlow', sans-serif",
-};
+// ── Confetti ──────────────────────────────────────────────
+const CONF_COLORS = ["#f0c525","#0d9480","#dc2626","#2563eb","#22c55e","#f97316","#a855f7"];
+function Confetti() {
+  const pieces = Array.from({ length: 34 }, (_, i) => ({
+    id: i, color: CONF_COLORS[i % CONF_COLORS.length],
+    left: `${4 + Math.random() * 92}%`,
+    size: 7 + Math.random() * 9, round: Math.random() > 0.45,
+    duration: 0.75 + Math.random() * 0.8, delay: Math.random() * 0.4,
+  }));
+  return (
+    <div style={{ position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius:"inherit" }}>
+      {pieces.map((p) => (
+        <div key={p.id} style={{
+          position:"absolute", left:p.left, top:0,
+          width:p.size, height:p.size, background:p.color,
+          borderRadius: p.round ? "50%" : 3,
+          animation:`confettiFall ${p.duration}s ease ${p.delay}s both`,
+        }}/>
+      ))}
+    </div>
+  );
+}
 
 // ── Timer Ring ────────────────────────────────────────────
 function TimerRing({ timeLeft }) {
-  const pct    = timeLeft / TIMER_TOTAL;
-  const offset = CIRCUMFERENCE * (1 - pct);
   const warn   = timeLeft <= 10;
-
+  const offset = CIRCUMFERENCE * (1 - timeLeft / TIMER_TOTAL);
   return (
-    <div style={{
-      display: "flex", alignItems: "center", justifyContent: "center",
-      marginBottom: 14, position: "relative",
-    }}>
-      <svg width="56" height="56" viewBox="0 0 56 56"
-        style={{ transform: "rotate(-90deg)" }}>
+    <div style={{ display:"flex", alignItems:"center", justifyContent:"center", marginBottom:22, position:"relative" }}>
+      <svg width="72" height="72" viewBox="0 0 56 56" style={{ transform:"rotate(-90deg)" }}>
+        <circle cx="28" cy="28" r="24" fill="none" stroke="#f0f0ee" strokeWidth="4.5"/>
         <circle cx="28" cy="28" r="24" fill="none"
-          stroke="#f0f0ee" strokeWidth="4" />
-        <circle cx="28" cy="28" r="24" fill="none"
-          stroke={warn ? C.red : C.teal} strokeWidth="4"
-          strokeLinecap="round"
-          strokeDasharray={CIRCUMFERENCE}
-          strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 0.9s linear, stroke 0.4s ease" }}
+          stroke={warn ? "var(--red)" : "var(--teal)"}
+          strokeWidth="4.5" strokeLinecap="round"
+          strokeDasharray={CIRCUMFERENCE} strokeDashoffset={offset}
+          style={{ transition:"stroke-dashoffset 0.9s linear, stroke 0.45s ease" }}
         />
       </svg>
       <span style={{
-        position: "absolute",
-        fontFamily: F.condensed, fontWeight: 800, fontSize: 18,
-        color: warn ? C.red : C.tealDark,
+        position:"absolute", fontFamily:"var(--f-condensed)", fontWeight:800, fontSize:24,
+        color: warn ? "var(--red)" : "var(--teal-dark)", transition:"color 0.4s",
         animation: warn ? "pulseTxt 0.7s ease infinite alternate" : "none",
-        transition: "color 0.4s ease",
       }}>
         {timeLeft}
       </span>
@@ -92,160 +54,290 @@ function TimerRing({ timeLeft }) {
   );
 }
 
-// ── Option Button ─────────────────────────────────────────
-function OptionBtn({ label, selected, disabled, onClick, delay = 0 }) {
-  const [hov, setHov] = useState(false);
-  const [pressed, setPressed] = useState(false);
+// ── Ripple ────────────────────────────────────────────────
+function spawnRipple(el) {
+  const r = document.createElement("span");
+  r.style.cssText = `position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);
+    width:150px;height:150px;left:50%;top:50%;margin:-75px;pointer-events:none;
+    animation:ripple 0.5s ease both;`;
+  el.appendChild(r);
+  setTimeout(() => r.remove(), 560);
+}
 
+// ── MC Option ─────────────────────────────────────────────
+function OptionBtn({ label, selected, disabled, onClick, delay }) {
+  const [hov, setHov]   = useState(false);
+  const [pres, setPres] = useState(false);
+  const ref = useRef(null);
+  const handle = () => {
+    if (disabled) return;
+    if (ref.current) spawnRipple(ref.current);
+    setPres(true); setTimeout(() => setPres(false), 140); onClick();
+  };
   return (
-    <button
-      onClick={() => { if (!disabled) onClick(); }}
+    <button ref={ref} onClick={handle}
       onMouseEnter={() => !selected && !disabled && setHov(true)}
-      onMouseLeave={() => { setHov(false); setPressed(false); }}
-      onMouseDown={() => !disabled && setPressed(true)}
-      onMouseUp={() => setPressed(false)}
+      onMouseLeave={() => { setHov(false); setPres(false); }}
       disabled={disabled}
       style={{
-        border: `2px solid ${selected ? C.teal : hov ? C.teal : C.tealBorder}`,
-        background: selected ? C.teal : hov ? C.tealLight : "#fff",
-        borderRadius: 14,
-        padding: "16px 14px",
-        fontFamily: F.regular,
-        fontWeight: 600, fontSize: 15,
-        color: selected ? "#fff" : C.tealDark,
+        fontFamily:"var(--f-regular)", fontWeight:600,
+        fontSize:"clamp(15px,1.5vw,18px)",
+        color: selected ? "#fff" : "var(--teal-dark)",
+        background: selected ? "var(--teal)" : hov ? "var(--teal-light)" : "#fff",
+        border:`2px solid ${selected ? "var(--teal)" : hov ? "var(--teal)" : "var(--teal-border)"}`,
+        borderRadius:16, padding:"clamp(18px,2.5vh,24px) 18px",
         cursor: disabled ? "default" : "pointer",
-        position: "relative", overflow: "hidden",
-        transform: pressed ? "scale(0.95)" : "scale(1)",
-        transition: "border-color .2s, background .2s, color .2s, transform .13s",
-        animation: `optIn 0.4s ease ${delay}s both`,
-      }}
-    >
+        position:"relative", overflow:"hidden",
+        transform: pres ? "scale(0.93)" : "scale(1)",
+        transition:"background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s",
+        animation:`optIn 0.4s ease ${delay}s both`,
+        userSelect:"none",
+      }}>
       {label}
     </button>
   );
 }
 
-// ── TF Button ─────────────────────────────────────────────
-function TFBtn({ label, icon, selected, disabled, onClick, delay = 0 }) {
+// ── OK / OOPS ─────────────────────────────────────────────
+function JudgeButtons({ onOK, onOops }) {
+  return (
+    <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, animation:"optIn 0.4s ease 0.1s both" }}>
+      <button onClick={onOK}
+        onMouseDown={(e) => e.currentTarget.style.transform="scale(0.95)"}
+        onMouseUp={(e)   => e.currentTarget.style.transform="scale(1)"}
+        onMouseLeave={(e)=> e.currentTarget.style.transform="scale(1)"}
+        onMouseEnter={(e)=> e.currentTarget.style.background="var(--teal-dark)"}
+        style={{
+          background:"var(--teal)", border:"none", borderRadius:16,
+          padding:"clamp(16px,2.4vh,22px)",
+          fontFamily:"var(--f-condensed)", fontWeight:800,
+          fontSize:"clamp(18px,2.2vw,22px)", letterSpacing:"0.08em",
+          color:"#fff", cursor:"pointer",
+          display:"flex", alignItems:"center", justifyContent:"center", gap:10,
+          transition:"background 0.15s, transform 0.12s", userSelect:"none",
+        }}>
+        <Check size={22} strokeWidth={3}/> OK
+      </button>
+      <button onClick={onOops}
+        onMouseDown={(e) => e.currentTarget.style.transform="scale(0.95)"}
+        onMouseUp={(e)   => e.currentTarget.style.transform="scale(1)"}
+        onMouseLeave={(e)=> { e.currentTarget.style.transform="scale(1)"; e.currentTarget.style.background="#fff"; }}
+        onMouseEnter={(e)=> e.currentTarget.style.background="var(--red-light)"}
+        style={{
+          background:"#fff", border:"2px solid var(--red-border)", borderRadius:16,
+          padding:"clamp(16px,2.4vh,22px)",
+          fontFamily:"var(--f-condensed)", fontWeight:800,
+          fontSize:"clamp(18px,2.2vw,22px)", letterSpacing:"0.08em",
+          color:"var(--red)", cursor:"pointer",
+          display:"flex", alignItems:"center", justifyContent:"center", gap:10,
+          transition:"background 0.15s, transform 0.12s", userSelect:"none",
+        }}>
+        <X size={22} strokeWidth={3}/> OOPS
+      </button>
+    </div>
+  );
+}
+
+// ── Check Button ──────────────────────────────────────────
+function CheckBtn({ onClick, disabled }) {
   const [hov, setHov] = useState(false);
   return (
-    <button
-      onClick={() => { if (!disabled) onClick(); }}
-      onMouseEnter={() => !selected && !disabled && setHov(true)}
+    <button onClick={onClick} disabled={disabled}
+      onMouseEnter={() => !disabled && setHov(true)}
       onMouseLeave={() => setHov(false)}
-      disabled={disabled}
+      onMouseDown={(e) => { if (!disabled) e.currentTarget.style.transform="scale(0.96)"; }}
+      onMouseUp={(e)   => e.currentTarget.style.transform="scale(1)"}
       style={{
-        border: `2px solid ${selected ? C.teal : hov ? C.teal : C.tealBorder}`,
-        background: selected ? C.teal : hov ? C.tealLight : "#fff",
-        borderRadius: 14, padding: "22px 14px",
-        fontFamily: F.condensed, fontWeight: 800, fontSize: 22,
-        color: selected ? "#fff" : C.tealDark,
+        width:"100%",
+        background: disabled ? "#f0f0ee" : hov ? "var(--yellow-hover)" : "var(--yellow)",
+        border:"none", borderRadius:18,
+        padding:"clamp(19px,2.6vh,26px)",
+        fontFamily:"var(--f-regular)", fontWeight:700,
+        fontSize:"clamp(15px,1.4vw,18px)", letterSpacing:"0.08em",
+        color: disabled ? "#aaa" : "var(--yellow-text)",
         cursor: disabled ? "default" : "pointer",
-        display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-        transition: "all .2s ease",
-        animation: `optIn 0.4s ease ${delay}s both`,
-      }}
-    >
-      <span style={{
-        fontSize: 22,
-        color: selected ? "#fff"
-          : label === "TRUE" ? C.green : C.red,
-        transition: "color .2s",
+        display:"flex", alignItems:"center", justifyContent:"center", gap:10,
+        transition:"background 0.15s, transform 0.12s",
+        animation:"btnIn 0.4s ease 0.42s both", userSelect:"none",
       }}>
-        {icon}
-      </span>
-      {label}
+      Check <ArrowRight size={18}/>
     </button>
   );
 }
 
 // ── Result Screen ─────────────────────────────────────────
-function ResultScreen({ isCorrect, correctAnswer, points, onNext, onBack }) {
+function ResultScreen({ isCorrect, correctAnswer, points, onContinue }) {
+  const [showConf, setShowConf] = useState(isCorrect);
+  useEffect(() => {
+    if (isCorrect) { const t = setTimeout(() => setShowConf(false), 1500); return () => clearTimeout(t); }
+  }, [isCorrect]);
+
   return (
-    <div style={{
-      textAlign: "center", padding: "8px 0",
-      animation: "resultIn .5s cubic-bezier(.34,1.38,.64,1) both",
-    }}>
+    <div style={{ textAlign:"center", padding:"6px 0", animation:"resultIn 0.5s cubic-bezier(.34,1.38,.64,1) both" }}>
+      {showConf && <Confetti/>}
       <span style={{
-        fontSize: 64, display: "block", margin: "0 auto 12px",
-        animation: "iconPop .6s cubic-bezier(.34,1.56,.64,1) both",
+        fontSize:"clamp(72px,10vw,88px)", display:"block", margin:"0 auto 16px", lineHeight:1,
+        animation:"iconPop 0.6s cubic-bezier(.34,1.56,.64,1) both",
       }}>
         {isCorrect ? "🎉" : "😬"}
       </span>
-
       <div style={{
-        fontFamily: F.condensed, fontWeight: 800, fontSize: 34, marginBottom: 8,
-        color: isCorrect ? C.teal : C.red,
+        fontFamily:"var(--f-condensed)", fontWeight:800,
+        fontSize:"clamp(34px,5vw,46px)", marginBottom:14,
+        color: isCorrect ? "var(--teal)" : "var(--red)",
       }}>
-        {isCorrect ? "Correct!" : "Oops!"}
+        {isCorrect ? "Correct!" : "Wrong!"}
       </div>
-
       {isCorrect ? (
         <div style={{
-          display: "inline-block",
-          background: C.tealLight, color: C.tealDark,
-          fontFamily: F.condensed, fontWeight: 800, fontSize: 18,
-          padding: "6px 20px", borderRadius: 100,
-          marginBottom: 24,
-          animation: "ptsIn .5s ease .3s both",
+          display:"inline-block",
+          background:"var(--teal-light)", color:"var(--score-neutral)",
+          fontFamily:"var(--f-condensed)", fontWeight:800, fontSize:24,
+          padding:"10px 32px", borderRadius:100, marginBottom:32,
+          animation:"ptsIn 0.5s ease 0.3s both",
         }}>
           +{points} points
         </div>
       ) : (
-        <>
-          <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 4 }}>
-            The correct answer was:
-          </p>
-          <p style={{
-            fontSize: 15, fontWeight: 700, color: C.red,
-            marginBottom: 22,
-          }}>
+        <div style={{ marginBottom:28 }}>
+          <div style={{ fontSize:16, color:"var(--muted)", marginBottom:6 }}>Correct answer:</div>
+          <div style={{ fontFamily:"var(--f-condensed)", fontWeight:700, fontSize:24, color:"var(--red)" }}>
             {correctAnswer}
-          </p>
-        </>
+          </div>
+        </div>
       )}
-
-      <div style={{ display: "grid", gap: 10 }}>
-        <button onClick={onNext} style={{
-          background: C.teal, border: "none", borderRadius: 14,
-          padding: 15, fontFamily: F.regular, fontWeight: 700,
-          fontSize: 14, color: "#fff", cursor: "pointer",
-          transition: "background .15s",
-          display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+      <button onClick={onContinue}
+        onMouseEnter={(e)=> e.currentTarget.style.background="var(--teal-dark)"}
+        onMouseLeave={(e)=> e.currentTarget.style.background="var(--teal)"}
+        onMouseDown={(e)=> e.currentTarget.style.transform="scale(0.96)"}
+        onMouseUp={(e)  => e.currentTarget.style.transform="scale(1)"}
+        style={{
+          width:"100%", background:"var(--teal)", border:"none", borderRadius:18,
+          padding:"clamp(18px,2.5vh,24px)",
+          fontFamily:"var(--f-regular)", fontWeight:700,
+          fontSize:"clamp(15px,1.4vw,18px)", color:"#fff", cursor:"pointer",
+          display:"flex", alignItems:"center", justifyContent:"center", gap:10,
+          transition:"background 0.15s, transform 0.12s", userSelect:"none",
         }}>
-          Next Question <ArrowRight size={16} />
-        </button>
-        {!isCorrect && (
-          <button onClick={onBack} style={{
-            background: "#fff",
-            border: `2px solid #fca5a5`,
-            borderRadius: 14, padding: "13px 15px",
-            fontFamily: F.regular, fontWeight: 700,
-            fontSize: 14, color: C.red, cursor: "pointer",
-            transition: "background .15s",
-          }}>
-            Back to Board
-          </button>
-        )}
-      </div>
+        Continue <ArrowRight size={20}/>
+      </button>
     </div>
   );
 }
 
-// ── Main Modal ────────────────────────────────────────────
-export default function QuizModal({ question, onClose }) {
-  const [timeLeft,   setTimeLeft]   = useState(TIMER_TOTAL);
-  const [selected,   setSelected]   = useState(null);
-  const [fillValue,  setFillValue]  = useState("");
-  const [phase,      setPhase]      = useState("answering"); // answering | result
-  const [isCorrect,  setIsCorrect]  = useState(null);
-  const [shake,      setShake]      = useState(false);
+// ── Special Tile Screen (bomb / bonus / swap) ─────────────
+function SpecialScreen({ special, onConfirm }) {
+  const isBomb  = special.stype === "bomb";
+  const isBonus = special.stype === "bonus";
+  const isSwap  = special.stype === "swap";
 
+  const emoji    = isBomb ? "💣" : isBonus ? "🎁" : "🔄";
+  const color    = isBomb ? "var(--red)" : isBonus ? "var(--teal)" : "#8b5cf6";
+  const bgAccent = isBomb ? "#fef2f2" : isBonus ? "var(--teal-light)" : "#f5f3ff";
+  const title    = isBomb  ? "BOMB!"
+                 : isBonus ? "BONUS!"
+                 : "SWAP!";
+  const effect   = isBomb  ? `−${special.points} points`
+                 : isBonus ? `+${special.points} points`
+                 : "Scores exchanged!";
+  const desc     = isBomb  ? "Ouch! Points have been deducted. Turn passes to the other team."
+                 : isBonus ? "Lucky! Bonus points awarded. Turn passes to the other team."
+                 : "Both teams' scores have been swapped! Turn passes to the other team.";
+
+  const [hov, setHov] = useState(false);
+
+  return (
+    <div style={{ textAlign:"center", padding:"8px 0", animation:"resultIn 0.5s cubic-bezier(.34,1.38,.64,1) both" }}>
+      <span style={{
+        fontSize:"clamp(80px,13vw,100px)", display:"block", margin:"0 auto 20px", lineHeight:1,
+        animation:"iconPop 0.65s cubic-bezier(.34,1.56,.64,1) both",
+      }}>
+        {emoji}
+      </span>
+
+      <div style={{
+        fontFamily:"var(--f-condensed)", fontWeight:800,
+        fontSize:"clamp(38px,6vw,52px)", color, marginBottom:14,
+        animation:"fadeUp 0.4s ease 0.15s both",
+      }}>
+        {title}
+      </div>
+
+      {/* Effect pill */}
+      <div style={{
+        display:"inline-block",
+        background: bgAccent, color,
+        fontFamily:"var(--f-condensed)", fontWeight:800,
+        fontSize:"clamp(24px,3.5vw,34px)",
+        padding:"10px 32px", borderRadius:100, marginBottom:20,
+        border:`2.5px solid ${color}`,
+        animation:"ptsIn 0.5s ease 0.25s both",
+      }}>
+        {effect}
+      </div>
+
+      <p style={{
+        fontSize:"clamp(15px,1.4vw,17px)", color:"var(--muted)",
+        marginBottom:32, lineHeight:1.7,
+        animation:"fadeUp 0.4s ease 0.3s both",
+      }}>
+        {desc}
+      </p>
+
+      <button onClick={onConfirm}
+        onMouseEnter={() => setHov(true)}
+        onMouseLeave={() => setHov(false)}
+        onMouseDown={(e) => e.currentTarget.style.transform="scale(0.96)"}
+        onMouseUp={(e)   => e.currentTarget.style.transform="scale(1)"}
+        style={{
+          width:"100%", background: color,
+          filter: hov ? "brightness(0.88)" : "none",
+          border:"none", borderRadius:18,
+          padding:"clamp(19px,2.6vh,26px)",
+          fontFamily:"var(--f-condensed)", fontWeight:800,
+          fontSize:"clamp(18px,2.2vw,22px)", letterSpacing:"0.08em",
+          color:"#fff", cursor:"pointer",
+          transition:"filter 0.15s, transform 0.12s",
+          animation:"btnIn 0.4s ease 0.4s both",
+          userSelect:"none",
+        }}>
+        Got it! →
+      </button>
+    </div>
+  );
+}
+
+// ── Badge labels ──────────────────────────────────────────
+const BADGE_LABELS = {
+  mc:            "Multiple Choice",
+  fill_blank:    "Fill in the Blank",
+  open_question: "Open Question",
+};
+const BADGE_COLORS = {
+  mc:            { bg:"var(--yellow)",   text:"var(--yellow-text)" },
+  fill_blank:    { bg:"#e0f2fe",         text:"#0369a1" },
+  open_question: { bg:"#f3e8ff",         text:"#7c3aed" },
+};
+
+// ── Main Modal ────────────────────────────────────────────
+export default function QuizModal() {
+  const activeQuestion  = useGameStore((s) => s.activeQuestion);
+  const activeSpecial   = useGameStore((s) => s.activeSpecial);
+  const submitAnswer    = useGameStore((s) => s.submitAnswer);
+  const confirmSpecial  = useGameStore((s) => s.confirmSpecial);
+
+  const [timeLeft,  setTimeLeft]  = useState(TIMER_TOTAL);
+  const [selected,  setSelected]  = useState(null);
+  // phase: "answering" | "judge" | "result"
+  const [phase,     setPhase]     = useState("answering");
+  const [isCorrect, setIsCorrect] = useState(null);
+  const [shake,     setShake]     = useState(false);
   const timerRef = useRef(null);
 
+  const q = activeQuestion;
+
   const triggerShake = useCallback(() => {
-    setShake(true);
-    setTimeout(() => setShake(false), 500);
+    setShake(true); setTimeout(() => setShake(false), 520);
   }, []);
 
   const revealResult = useCallback((correct) => {
@@ -255,247 +347,216 @@ export default function QuizModal({ question, onClose }) {
     if (!correct) triggerShake();
   }, [triggerShake]);
 
-  // Timer
+  // Timer — only for question tiles in answering phase
   useEffect(() => {
-    if (phase !== "answering") return;
+    if (!q || phase !== "answering") return;
     timerRef.current = setInterval(() => {
-      setTimeLeft(t => {
+      setTimeLeft((t) => {
         if (t <= 1) {
           clearInterval(timerRef.current);
-          revealResult(false);
+          if (q.qtype === "mc") revealResult(false);
+          else setPhase("judge");
           return 0;
         }
         return t - 1;
       });
     }, 1000);
     return () => clearInterval(timerRef.current);
-  }, [phase, revealResult]);
+  }, [phase, q, revealResult]);
 
-  // Reset on question change
-  useEffect(() => {
-    setTimeLeft(TIMER_TOTAL);
-    setSelected(null);
-    setFillValue("");
-    setPhase("answering");
-    setIsCorrect(null);
-  }, [question]);
+  // ── Special tile: just show SpecialScreen
+  if (activeSpecial) {
+    return (
+      <ModalShell shake={false}>
+        <SpecialScreen special={activeSpecial} onConfirm={confirmSpecial}/>
+      </ModalShell>
+    );
+  }
+
+  if (!q) return null;
 
   const handleCheck = () => {
-    if (phase !== "answering") return;
     clearInterval(timerRef.current);
-    let correct = false;
-    if (question.type === "multiple_choice") {
-      correct = selected === question.answer;
-    } else if (question.type === "true_false") {
-      correct = selected === question.answer;
-    } else {
-      correct = fillValue.trim().toLowerCase() === question.answer.toLowerCase();
-    }
-    setTimeout(() => revealResult(correct), 200);
+    if (q.qtype === "mc") revealResult(selected === q.answer);
+    else setPhase("judge");
   };
 
-  const canCheck = question.type === "fill_blank"
-    ? fillValue.trim().length > 0
-    : selected !== null;
+  const handleOK   = () => revealResult(true);
+  const handleOops = () => revealResult(false);
 
-  const correctDisplayAnswer =
-    question.type === "true_false"
-      ? (question.answer ? "TRUE" : "FALSE")
-      : question.displayAnswer || question.answer;
+  const bc = BADGE_COLORS[q.qtype] ?? BADGE_COLORS.mc;
+  const canCheck = q.qtype === "mc" ? selected !== null : true;
 
   return (
+    <ModalShell shake={shake}>
+      {/* ── Answering phase ── */}
+      {phase === "answering" && (
+        <>
+          <TimerRing timeLeft={timeLeft}/>
+
+          {/* Badge */}
+          <div style={{ marginBottom:18 }}>
+            <span style={{
+              display:"inline-block",
+              background: bc.bg, color: bc.text,
+              fontFamily:"var(--f-condensed)", fontWeight:700, fontSize:15,
+              letterSpacing:"0.14em", textTransform:"uppercase",
+              padding:"7px 20px", borderRadius:100,
+              animation:"badgeIn 0.4s ease 0.15s both",
+            }}>
+              {BADGE_LABELS[q.qtype] ?? q.qtype} · {q.points} pts
+            </span>
+          </div>
+
+          {/* Question */}
+          <div style={{
+            fontFamily:"var(--f-condensed)", fontWeight:700,
+            fontSize:"clamp(22px,3.2vw,32px)",
+            color:"var(--teal-dark)", lineHeight:1.3,
+            marginBottom:"clamp(20px,3vh,32px)",
+            animation:"qIn 0.45s ease 0.2s both",
+          }}>
+            {q.text}
+          </div>
+
+          {/* MC options */}
+          {q.qtype === "mc" && (
+            <div style={{
+              display:"grid", gridTemplateColumns:"1fr 1fr",
+              gap:"clamp(12px,1.8vw,20px)",
+              marginBottom:"clamp(20px,3vh,30px)",
+            }}>
+              {q.options.map((opt, i) => (
+                <OptionBtn key={opt} label={opt}
+                  selected={selected === opt} disabled={false}
+                  onClick={() => setSelected(opt)}
+                  delay={0.18 + i * 0.07}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* fill_blank / open_question hint */}
+          {(q.qtype === "fill_blank" || q.qtype === "open_question") && (
+            <div style={{
+              background: bc.bg, borderRadius:16,
+              padding:"18px 22px", marginBottom:"clamp(18px,2.8vh,28px)",
+              fontSize:16, color: bc.text, fontWeight:600,
+              animation:"optIn 0.4s ease 0.22s both",
+              lineHeight:1.6,
+            }}>
+              {q.qtype === "fill_blank"
+                ? "🎤 Team answers verbally — press Check to reveal the correct answer"
+                : "🎤 Team gives their answer — press Check when ready to judge"}
+            </div>
+          )}
+
+          <CheckBtn onClick={handleCheck} disabled={!canCheck}/>
+        </>
+      )}
+
+      {/* ── Judge phase (fill_blank / open_question) ── */}
+      {phase === "judge" && (
+        <div style={{ animation:"resultIn 0.45s cubic-bezier(.34,1.38,.64,1) both" }}>
+          <div style={{ marginBottom:14 }}>
+            <span style={{
+              display:"inline-block",
+              background:"#f3e8ff", color:"#7c3aed",
+              fontFamily:"var(--f-condensed)", fontWeight:700, fontSize:13,
+              letterSpacing:"0.14em", textTransform:"uppercase",
+              padding:"6px 18px", borderRadius:100,
+            }}>
+              Teacher's Call · {q.points} pts
+            </span>
+          </div>
+
+          <div style={{
+            fontFamily:"var(--f-condensed)", fontWeight:700,
+            fontSize:"clamp(17px,2.4vw,24px)",
+            color:"var(--teal-dark)", lineHeight:1.3, marginBottom:16,
+          }}>
+            {q.text}
+          </div>
+
+          {/* Reveal answer for fill_blank */}
+          {q.qtype === "fill_blank" && (
+            <div style={{
+              background:"var(--teal)", borderRadius:14,
+              padding:"14px 18px", marginBottom:20,
+              display:"flex", alignItems:"center", gap:12,
+            }}>
+              <span style={{ fontSize:22 }}>✅</span>
+              <div>
+                <div style={{ fontSize:11, color:"rgba(255,255,255,0.65)", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:3 }}>
+                  Correct Answer
+                </div>
+                <div style={{
+                  fontFamily:"var(--f-condensed)", fontWeight:800,
+                  fontSize:"clamp(20px,2.8vw,28px)", color:"#fff",
+                }}>
+                  {q.answer}
+                </div>
+              </div>
+            </div>
+          )}
+
+          <p style={{
+            fontSize:14, color:"var(--muted)", marginBottom:20,
+            textAlign:"center", lineHeight:1.5, fontWeight:500,
+          }}>
+            {q.qtype === "fill_blank"
+              ? "Did the team get it right?"
+              : "Was the team's verbal answer correct?"}
+          </p>
+
+          <JudgeButtons onOK={handleOK} onOops={handleOops}/>
+        </div>
+      )}
+
+      {/* ── Result phase ── */}
+      {phase === "result" && (
+        <ResultScreen
+          isCorrect={isCorrect}
+          correctAnswer={q.qtype === "fill_blank" ? q.answer : "—"}
+          points={q.points}
+          onContinue={() => submitAnswer(isCorrect)}
+        />
+      )}
+    </ModalShell>
+  );
+}
+
+// ── Shared Modal Shell ────────────────────────────────────
+function ModalShell({ children, shake }) {
+  return (
     <div style={{
-      position: "fixed", inset: 0,
-      background: "rgba(10,100,88,0.55)",
-      backdropFilter: "blur(6px)",
-      WebkitBackdropFilter: "blur(6px)",
-      display: "flex", alignItems: "center", justifyContent: "center",
-      padding: 20, zIndex: 100,
+      position:"absolute", inset:0,
+      background:"rgba(10,100,88,0.50)",
+      backdropFilter:"blur(8px)", WebkitBackdropFilter:"blur(8px)",
+      display:"flex", alignItems:"center", justifyContent:"center",
+      padding:"clamp(12px,2vw,24px)", zIndex:100,
     }}>
       <div style={{
-        background: "#fff",
-        borderRadius: 24,
-        width: "100%", maxWidth: 440,
-        padding: "28px 28px 24px",
-        position: "relative", overflow: "hidden",
-        animation: `modalIn 0.45s cubic-bezier(.34,1.38,.64,1) both`,
-        transform: shake ? undefined : undefined,
+        background:"#fff", borderRadius:32,
+        width:"100%", maxWidth:640,
+        padding:"clamp(36px,5vh,56px) clamp(36px,5vw,56px) clamp(30px,4vh,48px)",
+        position:"relative", overflow:"hidden",
+        animation: shake ? "shake 0.5s ease" : "modalIn 0.48s cubic-bezier(.34,1.38,.64,1) both",
+        maxHeight:"94vh", overflowY:"auto",
+        boxShadow:"0 24px 80px rgba(0,0,0,0.18)",
       }}>
-        {/* Phase: answering */}
-        {phase === "answering" && (
-          <>
-            <TimerRing timeLeft={timeLeft} />
-
-            {/* Badge */}
-            <div style={{ marginBottom: 14 }}>
-              <span style={{
-                display: "inline-block",
-                background: C.yellow, color: C.yellowText,
-                fontFamily: F.condensed, fontWeight: 700, fontSize: 12,
-                letterSpacing: ".14em", textTransform: "uppercase",
-                padding: "5px 16px", borderRadius: 100,
-                animation: "badgeIn .4s ease .15s both",
-              }}>
-                {question.badge}
-              </span>
-            </div>
-
-            {/* Question */}
-            <div style={{
-              fontFamily: F.condensed, fontWeight: 700,
-              fontSize: "clamp(20px,3.5vw,26px)",
-              color: C.tealDark, lineHeight: 1.25,
-              marginBottom: 22,
-              animation: "qIn .45s ease .2s both",
-            }}>
-              {question.text}
-            </div>
-
-            {/* Multiple choice */}
-            {question.type === "multiple_choice" && (
-              <div style={{
-                display: "grid", gridTemplateColumns: "1fr 1fr",
-                gap: 12, marginBottom: 20,
-              }}>
-                {question.options.map((opt, i) => (
-                  <OptionBtn
-                    key={opt} label={opt}
-                    selected={selected === opt}
-                    disabled={false}
-                    onClick={() => setSelected(opt)}
-                    delay={0.18 + i * 0.07}
-                  />
-                ))}
-              </div>
-            )}
-
-            {/* Fill blank */}
-            {question.type === "fill_blank" && (
-              <input
-                value={fillValue}
-                onChange={e => setFillValue(e.target.value)}
-                placeholder="Type your answer..."
-                autoComplete="off"
-                style={{
-                  width: "100%",
-                  border: `2px solid ${C.tealBorder}`,
-                  borderRadius: 14, padding: "16px 18px",
-                  fontFamily: F.regular, fontWeight: 600, fontSize: 16,
-                  color: C.tealDark, outline: "none",
-                  marginBottom: 20,
-                  animation: "optIn .4s ease .2s both",
-                  transition: "border-color .2s",
-                }}
-                onFocus={e => e.target.style.borderColor = C.teal}
-                onBlur={e => e.target.style.borderColor = C.tealBorder}
-              />
-            )}
-
-            {/* True / False */}
-            {question.type === "true_false" && (
-              <div style={{
-                display: "grid", gridTemplateColumns: "1fr 1fr",
-                gap: 12, marginBottom: 20,
-              }}>
-                <TFBtn label="TRUE"  icon="✓" selected={selected === true}  disabled={false} onClick={() => setSelected(true)}  delay={0.18} />
-                <TFBtn label="FALSE" icon="✗" selected={selected === false} disabled={false} onClick={() => setSelected(false)} delay={0.25} />
-              </div>
-            )}
-
-            {/* Check button */}
-            <button
-              onClick={handleCheck}
-              disabled={!canCheck}
-              style={{
-                width: "100%",
-                background: canCheck ? C.yellow : "#f0f0ee",
-                border: "none", borderRadius: 14, padding: 17,
-                fontFamily: F.regular, fontWeight: 700, fontSize: 15,
-                letterSpacing: ".08em",
-                color: canCheck ? C.yellowText : "#aaa",
-                cursor: canCheck ? "pointer" : "default",
-                display: "flex", alignItems: "center",
-                justifyContent: "center", gap: 8,
-                transition: "background .15s, color .15s, transform .12s",
-                animation: "btnIn .4s ease .4s both",
-              }}
-            >
-              Check <ArrowRight size={16} />
-            </button>
-          </>
-        )}
-
-        {/* Phase: result */}
-        {phase === "result" && (
-          <ResultScreen
-            isCorrect={isCorrect}
-            correctAnswer={correctDisplayAnswer}
-            points={question.points}
-            onNext={() => onClose?.(isCorrect)}
-            onBack={() => onClose?.(false)}
-          />
-        )}
+        {/* Shimmer on open */}
+        <div style={{
+          position:"absolute", top:0, left:0, right:0, bottom:0, pointerEvents:"none",
+          background:"linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.5) 50%, transparent 60%)",
+          animation:"shimmer 0.8s ease 0.3s both",
+        }}/>
+        {children}
       </div>
-
       <style>{`
-        @keyframes modalIn {
-          from { opacity:0; transform:scale(0.82) translateY(20px); }
-          to   { opacity:1; transform:scale(1) translateY(0); }
-        }
-        @keyframes badgeIn {
-          from { opacity:0; transform:scale(0.7); }
-          to   { opacity:1; transform:scale(1); }
-        }
-        @keyframes qIn {
-          from { opacity:0; transform:translateY(10px); }
-          to   { opacity:1; transform:translateY(0); }
-        }
-        @keyframes optIn {
-          from { opacity:0; transform:translateY(14px) scale(0.96); }
-          to   { opacity:1; transform:translateY(0) scale(1); }
-        }
-        @keyframes btnIn {
-          from { opacity:0; transform:translateY(10px); }
-          to   { opacity:1; transform:translateY(0); }
-        }
-        @keyframes resultIn {
-          from { opacity:0; transform:scale(0.8) translateY(16px); }
-          to   { opacity:1; transform:scale(1) translateY(0); }
-        }
-        @keyframes iconPop {
-          from { transform:scale(0) rotate(-20deg); }
-          to   { transform:scale(1) rotate(0); }
-        }
-        @keyframes ptsIn {
-          from { opacity:0; transform:translateY(8px); }
-          to   { opacity:1; transform:translateY(0); }
-        }
-        @keyframes pulseTxt {
-          to { transform:scale(1.12); }
-        }
-        @keyframes shake {
-          0%,100%{transform:translateX(0)}
-          15%{transform:translateX(-8px)}
-          30%{transform:translateX(8px)}
-          45%{transform:translateX(-6px)}
-          60%{transform:translateX(6px)}
-          75%{transform:translateX(-3px)}
-          90%{transform:translateX(3px)}
-        }
+        @keyframes qIn   { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes btnIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
       `}</style>
     </div>
   );
 }
-
-/*
-  Usage:
-  import QuizModal, { QUESTION_EXAMPLES } from "./QuizModal";
-
-  <QuizModal
-    question={QUESTION_EXAMPLES.multipleChoice}
-    onClose={(wasCorrect) => {
-      // handle score, close modal, switch turn, etc.
-      setModalOpen(false);
-    }}
-  />
-*/

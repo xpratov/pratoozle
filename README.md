@@ -1,18 +1,97 @@
-# React + Vite
+# 🎮 Kinetic Gallery — Quiz Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Zustand bilan qurilgan to'liq ishlaydigan viktorina o'yini.
 
-Currently, two official plugins are available:
+## 📁 Fayl tuzilmasi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+src/
+├── App.jsx                    ← Asosiy router (fase: landing/board/modal/gameover)
+├── index.css                  ← Global CSS tokenlar + barcha keyframe animatsiyalar
+├── data/
+│   └── questions.json         ← 8 mavzu × 14 savol = 112 ta savol (MC + T/F)
+├── store/
+│   └── useGameStore.js        ← Zustand store — barcha o'yin holati
+└── components/
+    ├── LandingPage.jsx        ← Bosh sahifa (mavzu, jamoalar, start)
+    ├── GameBoard.jsx          ← O'yin taxtasi (tillar, skor, turn badge, toast)
+    ├── QuizModal.jsx          ← Savol modali (taymer, MC/TF, natija, confetti)
+    └── GameOver.jsx           ← Yakuniy ekran (g'olib, ballar, qayta o'ynash)
+```
 
-## React Compiler
+## ⚙️ O'rnatish
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```bash
+# 1. Yangi React loyihasi yarating
+npm create vite@latest kinetic-gallery -- --template react
+cd kinetic-gallery
 
-Note: This will impact Vite dev & build performances.
+# 2. Zustand va Lucide o'rnating
+npm install zustand lucide-react
 
-## Expanding the ESLint configuration
+# 3. Fayllarni joylashtiring (yuqoridagi tuzilmaga mos)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 4. index.html <head> ichiga font qo'shing:
+```
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+```
+
+```bash
+# 5. Loyihani ishga tushiring
+npm run dev
+```
+
+## 🎯 O'yin qoidalari
+
+| Hodisa           | Ball o'zgarishi        | Navbat    |
+|------------------|------------------------|-----------|
+| ✅ To'g'ri javob | +savol ballari         | Almashadi |
+| ❌ Noto'g'ri     | 0                      | Almashadi |
+| 💣 Bomba tile    | −20                    | Almashadi |
+| 🎁 Sovg'a tile   | +20                    | Qoladi    |
+| ⏱ Vaqt tugadi    | 0                      | Almashadi |
+
+## 🎨 Animatsiyalar
+
+- **Landing**: Logo, sarlavha, tugmalar — staggered fadeUp entrance
+- **Mavzu tugmalari**: Bosishda scale ripple
+- **GameBoard**: Tillar staggered tileIn, skor count-up + bounce
+- **Modal**: Spring modalIn + shimmer effekti
+- **Taymer**: SVG halqa real-time, 10s qolsa qizil + pulse
+- **Variantlar**: Staggered optIn, bosishda ripple
+- **To'g'ri**: confetti burst + iconPop
+- **Noto'g'ri**: shake animatsiyasi
+- **Bomba/Sovg'a**: Tile flip + toast bottom overlay
+- **GameOver**: FullConfetti + staggered score cards
+
+## 🗂 Savol qo'shish
+
+`src/data/questions.json` fayliga qo'shing:
+
+```json
+{
+  "mathematics": [
+    {
+      "id": "m15",
+      "type": "mc",
+      "text": "Savol matni?",
+      "options": ["A", "B", "C", "D"],
+      "answer": "A",
+      "points": 10
+    },
+    {
+      "id": "m16",
+      "type": "tf",
+      "text": "Bu to'g'rimi?",
+      "answer": true,
+      "points": 5
+    }
+  ]
+}
+```
+
+`type` qiymatlari: `"mc"` (multiple choice, 4 variant) | `"tf"` (true/false)

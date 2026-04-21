@@ -1,17 +1,27 @@
-import { Route, Routes } from "react-router-dom"
-import QuizGame from "./pages/Home/Home"
-import GameBoard from "./pages/Game/Game"
+import "./index.css";
+import GameOver from "./pages/Result/Result";
+import LandingPage from "./pages/Home/Home";
+import GameBoard from "./pages/Game/Game";
+import QuizModal from "./pages/Game/components/QuizModal";
+import useGameStore from "./store/useGameStore";
 
+export default function App() {
+  const phase = useGameStore((s) => s.phase);
 
-function App() {
   return (
-    <Routes>
-      <Route path="/" element={<QuizGame/>}/>
-      <Route path="/game" element={<GameBoard/>}/>
-      <Route path="*" element={<h1>404 - Sahifa topilmadi</h1>} />
-    </Routes>
+    <div style={{ height: "100vh", width: "100%", overflow: "hidden", position: "relative" }}>
+      {/* Landing */}
+      {phase === "landing" && <LandingPage />}
 
-  )
+      {/* Board is always mounted when in board/modal/toast/gameover phase */}
+      {(phase === "board" || phase === "modal" || phase === "toast") && (
+        <>
+          <GameBoard />
+          {phase === "modal" && <QuizModal />}
+        </>
+      )}
+
+      {phase === "gameover" && <GameOver />}
+    </div>
+  );
 }
-
-export default App
