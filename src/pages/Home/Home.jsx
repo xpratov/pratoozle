@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import useGameStore from "../../store/useGameStore";
 
 const SUBJECTS = [
-  "MATHEMATICS",
+  "ENGLISH",
   "GEOGRAPHY",
 ];
 
@@ -56,10 +56,10 @@ function SubjectBtn({ label, active, onClick, delay }) {
 /* ── Landing Page ───────────────────────────────────────── */
 export default function LandingPage() {
   const startGame  = useGameStore((s) => s.startGame);
-  const [selected, setSelected] = useState("MATHEMATICS");
+  const [selected, setSelected] = useState("ENGLISH");
   const [startHov, setStartHov] = useState(false);
   const [startPres, setStartPres] = useState(false);
-
+  
   // Staggered visibility triggers
   const [t, setT] = useState({
     logo: false, title: false, sub: false,
