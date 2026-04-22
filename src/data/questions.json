@@ -1,740 +1,1125 @@
 {
   "english": {
     "multiple_choice": [
-        {
-          "id": "eng_mc_01",
-          "text": "Which of the following is a defining characteristic of a **joint-stock** company?",
-          "options": [
-            "It is owned exclusively by the government.",
-            "Ownership is divided into transferable shares held by investors.",
-            "The owners have unlimited personal liability for all debts.",
-            "It cannot trade its shares on public stock exchanges."
-          ],
-          "answer": "Ownership is divided into transferable shares held by investors."
-        },
-        {
-          "id": "eng_mc_02",
-          "text": "During an annual general meeting, what is the primary role of the **shareholders**?",
-          "options": [
-            "Managing the daily operational activities of the firm.",
-            "Auditing the financial statements of competitors.",
-            "Voting on key decisions and electing the board of directors.",
-            "Drafting employment contracts for entry-level staff."
-          ],
-          "answer": "Voting on key decisions and electing the board of directors."
-        },
-        {
-          "id": "eng_mc_03",
-          "text": "Why do large **multinationals** often face criticism regarding global taxation?",
-          "options": [
-            "They only operate in one domestic market.",
-            "They are often accused of shifting profits to low-tax jurisdictions.",
-            "They lack the resources to hire international lawyers.",
-            "Their business model does not allow for cross-border trade."
-          ],
-          "answer": "They are often accused of shifting profits to low-tax jurisdictions."
-        },
-        {
-          "id": "eng_mc_04",
-          "text": "A large corporation decides to consolidate its operations by creating several **subsidiaries**. What does this imply?",
-          "options": [
-            "The companies are entirely independent and have no parent firm.",
-            "The companies are controlled or owned by a holding or parent company.",
-            "The corporation is going bankrupt and selling all its tools.",
-            "The companies have merged into a single legal entity with no branches."
-          ],
-          "answer": "The companies are controlled or owned by a holding or parent company."
-        },
-        {
-          "id": "eng_mc_05",
-          "text": "In financial accounting, which of the following would be classified as intangible **assets**?",
-          "options": [
-            "Office furniture and machinery.",
-            "Cash reserves and gold bullion.",
-            "Patents, trademarks, and brand reputation.",
-            "Unpaid utility bills and short-term loans."
-          ],
-          "answer": "Patents, trademarks, and brand reputation."
-        },
-        {
-          "id": "eng_mc_06",
-          "text": "What is the typical outcome of horizontal **mergers** between two former competitors?",
-          "options": [
-            "Increased market share and potential synergy.",
-            "A guaranteed decrease in the price of all products.",
-            "The immediate dissolution of both companies' boards.",
-            "A legal requirement to switch to a non-profit model."
-          ],
-          "answer": "Increased market share and potential synergy."
-        },
-        {
-          "id": "eng_mc_07",
-          "text": "How do hostile **acquisitions** differ from friendly ones?",
-          "options": [
-            "They involve no exchange of money or shares.",
-            "The target company's management resists the takeover attempt.",
-            "They only occur between small family-owned businesses.",
-            "The purchasing company goes into debt to help the target company."
-          ],
-          "answer": "The target company's management resists the takeover attempt."
-        },
-        {
-          "id": "eng_mc_08",
-          "text": "The late 1990s saw a massive speculative bubble involving **dotcoms**. What was the primary focus of these businesses?",
-          "options": [
-            "Heavy industrial manufacturing and steel production.",
-            "Agricultural exports to developing nations.",
-            "Internet-based services and e-commerce platforms.",
-            "Traditional brick-and-mortar retail banking."
-          ],
-          "answer": "Internet-based services and e-commerce platforms."
-        },
-        {
-          "id": "eng_mc_09",
-          "text": "Successful **entrepreneurs** are often characterized by their ability to:",
-          "options": [
-            "Avoid all forms of risk and uncertainty in the market.",
-            "Identify market gaps and innovate despite potential failure.",
-            "Work only within the limits of established corporate hierarchies.",
-            "Focus solely on short-term tasks without a long-term vision."
-          ],
-          "answer": "Identify market gaps and innovate despite potential failure."
-        },
-          {
-            "id": "eng_mc_10",
-            "text": "A great leader does not just give orders; they strive to **inspire** their team to reach their full potential. What does 'inspire' mean in this context?",
-            "options": [
-              "To force someone to work harder using threats.",
-              "To fill someone with the confidence and desire to do something creative or excellent.",
-              "To pay a higher salary than other competing companies.",
-              "To ignore the mistakes made by the employees."
-            ],
-            "answer": "To fill someone with the confidence and desire to do something creative or excellent."
-          },
-          {
-            "id": "eng_mc_11",
-            "text": "Many companies offer bonuses and recognition programs to **motivate** their staff. What is the primary goal of these actions?",
-            "options": [
-              "To reduce the number of employees in the office.",
-              "To make the employees feel tired of their work.",
-              "To provide an incentive or reason for employees to act in a certain way.",
-              "To prevent employees from talking to each other during breaks."
-            ],
-            "answer": "To provide an incentive or reason for employees to act in a certain way."
-          },
-          {
-            "id": "eng_mc_12",
-            "text": "Human Resources departments often organize workshops to **develop talent** within the organization. Why is this important?",
-            "options": [
-              "To ensure employees stay at the same skill level for years.",
-              "To identify and improve the existing skills and abilities of employees.",
-              "To find reasons to decrease the monthly budget.",
-              "To replace all human workers with automated machines."
-            ],
-            "answer": "To identify and improve the existing skills and abilities of employees."
-          },
-          {
-            "id": "eng_mc_13",
-            "text": "An 'autocratic' **management style** is often characterized by which of the following?",
-            "options": [
-              "Giving employees complete freedom to make all decisions.",
-              "A collaborative environment where everyone has an equal vote.",
-              "One person making decisions with little input from the rest of the team.",
-              "The absence of any clear rules or organizational structure."
-            ],
-            "answer": "One person making decisions with little input from the rest of the team."
-          },
-          {
-            "id": "eng_mc_14",
-            "text": "Effective managers know how to **delegate** tasks to their team members. What does 'delegate' involve?",
-            "options": [
-              "Doing all the difficult work by yourself to show off skills.",
-              "Assigning specific responsibilities or authority to others.",
-              "Cancelling all projects that are too complicated.",
-              "Asking the customers to complete the internal paperwork."
-            ],
-            "answer": "Assigning specific responsibilities or authority to others."
-          },
-          {
-            "id": "eng_mc_15",
-            "text": "In a traditional corporate hierarchy, managers are responsible for overseeing the work of their **subordinates**. Who are these people?",
-            "options": [
-              "The people who own the majority of the company's shares.",
-              "External consultants who work for a different firm.",
-              "Employees who are lower in rank or position than the manager.",
-              "The board of directors who oversee the CEO."
-            ],
-            "answer": "Employees who are lower in rank or position than the manager."
-          },
-          {
-            "id": "eng_mc_16",
-            "text": "When a manager is given the **authority** to sign contracts, it means they have:",
-            "options": [
-              "The legal right or power to make decisions and enforce rules.",
-              "The physical strength to move heavy office equipment.",
-              "A lot of free time to read various documents.",
-              "A personal interest in becoming a professional lawyer."
-            ],
-            "answer": "The legal right or power to make decisions and enforce rules."
-          },
-          {
-            "id": "eng_mc_17",
-            "text": "A company decides to focus entirely on luxury eco-friendly products to differentiate itself from mass-market rivals. This long-term plan of action is known as a:",
-            "options": ["Budget", "Strategy", "Transaction", "Department"],
-            "answer": "Strategy"
-          },
-          {
-            "id": "eng_mc_18",
-            "text": "Which of the following best describes the **planning process** in a business context?",
-            "options": [
-              "The act of hiring new employees for the reception desk.",
-              "A series of steps taken to set goals and determine the best way to achieve them.",
-              "The physical construction of a new office building.",
-              "The daily routine of checking emails and answering phone calls."
-            ],
-            "answer": "A series of steps taken to set goals and determine the best way to achieve them."
-          },
-          {
-            "id": "eng_mc_19",
-            "text": "When a tech firm talks about 'emerging **markets**', they are primarily referring to:",
-            "options": [
-              "The physical grocery stores located in the city center.",
-              "New groups of potential customers or geographic regions with rising economic activity.",
-              "The legal documents required to export goods abroad.",
-              "The internal software used to track employee performance."
-            ],
-            "answer": "New groups of potential customers or geographic regions with rising economic activity."
-          },
-          {
-            "id": "eng_mc_20",
-            "text": "In a healthy economy, intense **competition** usually leads to:",
-            "options": [
-              "Higher prices for consumers and lower quality goods.",
-              "A monopoly where only one company exists.",
-              "Better products and more innovative services for the public.",
-              "A complete ban on advertising and marketing activities."
-            ],
-            "answer": "Better products and more innovative services for the public."
-          },
-          {
-            "id": "eng_mc_21",
-            "text": "During a SWOT analysis, a sudden change in regulations that favors your company's new technology would be classified as one of the:",
-            "options": ["Weaknesses", "Threats", "Opportunities", "Liabilities"],
-            "answer": "Opportunities"
-          },
-          {
-            "id": "eng_mc_22",
-            "text": "If a startup reports a 20% year-on-year **growth** in revenue, it means the company is:",
-            "options": [
-              "Becoming smaller and more specialized.",
-              "Expanding its financial scale or market influence.",
-              "Closing down its international branches.",
-              "Reducing the number of products it sells."
-            ],
-            "answer": "Expanding its financial scale or market influence."
-          },
-          {
-            "id": "eng_mc_23",
-            "text": "New competitors entering the market or a sudden economic recession are typical examples of external ________ in a business environment.",
-            "options": ["Threats", "Assets", "Promotions", "Bonuses"],
-            "answer": "Threats"
-          },
-          {
-            "id": "eng_mc_24",
-            "text": "What is the main difference between daily tasks and **strategic objectives**?",
-            "options": [
-              "Strategic objectives are small chores that take five minutes.",
-              "Strategic objectives are specific, long-term goals that align with the company's vision.",
-              "Daily tasks are only performed by the CEO of the company.",
-              "There is no difference; they are exactly the same thing."
-            ],
-            "answer": "Strategic objectives are specific, long-term goals that align with the company's vision."
-          },
-          {
-            "id": "eng_mc_25",
-            "text": "To launch a new project, a manager must allocate **resources**. In this sense, 'resources' can include:",
-            "options": [
-              "Only the physical trash bins in the office.",
-              "Money, time, staff, and equipment.",
-              "The personal hobbies of the employees' family members.",
-              "The weather conditions outside the factory."
-            ],
-            "answer": "Money, time, staff, and equipment."
-          },
-          {
-            "id": "eng_mc_26",
-            "text": "In business slang, who does the term **“fat cats”** usually refer to?",
-            "options": ["Successful entry-level interns", "Overpaid and greedy executives", "Loyal long-term customers", "Hardworking factory staff"],
-            "answer": "Overpaid and greedy executives"
-          },
-          {
-            "id": "eng_mc_27",
-            "text": "A CEO's **pay package** typically includes not just a salary, but also:",
-            "options": ["Free office stationery", "Stock options and bonuses", "Unpaid overtime hours", "Personal grocery bills"],
-            "answer": "Stock options and bonuses"
-          },
-          {
-            "id": "eng_mc_28",
-            "text": "Which of these is considered a non-monetary **reward** for an employee?",
-            "options": ["A cash prize", "A monthly salary increase", "Extra vacation days", "A formal debt notice"],
-            "answer": "Extra vacation days"
-          },
-          {
-            "id": "eng_mc_29",
-            "text": "What is the main purpose of a **pension** plan?",
-            "options": ["To pay for daily transport", "To provide income after retirement", "To fund a short-term holiday", "To buy new office furniture"],
-            "answer": "To provide income after retirement"
-          },
-          {
-            "id": "eng_mc_30",
-            "text": "A **“golden parachute”** is an agreement that ensures an executive gets:",
-            "options": ["A private jet for business trips", "A large payment if they lose their job", "Free skydiving lessons", "A high-quality office chair"],
-            "answer": "A large payment if they lose their job"
-          },
-          {
-            "id": "eng_mc_31",
-            "text": "When an employee is asked to leave a company, they might negotiate a **severance deal**. What is it?",
-            "options": ["A final contract to stay longer", "An agreement on leaving compensation", "A list of future job responsibilities", "A tax penalty for quitting"],
-            "answer": "An agreement on leaving compensation"
-          },
-          {
-            "id": "eng_mc_32",
-            "text": "The primary role of **remuneration committees** is to decide:",
-            "options": ["The price of company products", "How much top managers should be paid", "The office cleaning schedule", "Which software to buy for IT"],
-            "answer": "How much top managers should be paid"
-          },
-          {
-            "id": "eng_mc_33",
-            "text": "What is the primary function of **compensation committees** within a large corporation?",
-            "options": [
-              "To manage the company's daily tax filings and accounting.",
-              "To set the pay scales, bonuses, and benefits for senior executives.",
-              "To organize social events and holiday parties for all staff.",
-              "To provide legal defense for employees in personal lawsuits."
-            ],
-            "answer": "To set the pay scales, bonuses, and benefits for senior executives."
-          },
-          { "id": "eng_mc_34", 
-            "text": "Regular exercise has many ________ for your health, including reduced stress and improved sleep.", 
-            "options": ["habits", "benefits", "obstacles", "symptoms"], 
-            "answer": "benefits" 
-          },
-          { "id": "eng_mc_35", "text": "Japan is classified as an MEDC. What does this tell us about the country?", "options": ["It has a very high birth rate", "It depends mainly on farming", "It has a high standard of living and strong infrastructure", "It receives large amounts of foreign aid"], "answer": "It has a high standard of living and strong infrastructure" },
-          { "id": "eng_mc_36", "text": "Which of the following is a typical feature of an LEDC?", "options": ["High GDP per capita", "Advanced public healthcare", "Limited access to clean water", "Low unemployment rates"], "answer": "Limited access to clean water" },
-          { "id": "eng_mc_37", "text": "Oil, fresh water, and timber are all examples of ________.", "options": ["manufactured goods", "natural resources", "industrial waste", "economic policies"], "answer": "natural resources" },
-          { "id": "eng_mc_38", "text": "Large construction projects, such as dams and motorways, often have a negative impact on the environment. Which effect is most commonly associated with them?", "options": ["Reducing carbon emissions", "Improving soil fertility", "Destroying natural habitats", "Increasing biodiversity"], "answer": "Destroying natural habitats" },
-          { "id": "eng_mc_39", "text": "Factories, power plants, and oil refineries are all examples of ________.", "options": ["residential zones", "agricultural units", "industrial facilities", "commercial markets"], "answer": "industrial facilities" },
-          { "id": "eng_mc_40", "text": "A country's Gross Domestic Product is best described as ________.", "options": ["the total foreign aid a country receives each year", "the average salary earned by citizens", "the total value of goods and services produced in a country", "the number of people actively working"], "answer": "the total value of goods and services produced in a country" },
-          { "id": "eng_mc_41", "text": "Groups of ________ have been protesting against the new oil pipeline, arguing it will damage local ecosystems.", "options": ["economists", "urbanists", "geographers", "environmentalists"], "answer": "environmentalists" },
-          { "id": "eng_mc_42", "text": "One major consequence of rapid industrialization in LEDCs is increased air and water ________.", "options": ["tourism", "agriculture", "education", "pollution"], "answer": "pollution" },
-          { "id": "eng_mc_43", "text": "Illegal deforestation endangers many rare species of plants and animals. What does 'endangers' mean in this sentence?", "options": ["protects", "threatens", "supports", "increases"], "answer": "threatens" },
-          {
-            "id": "eng_mc_44",
-            "text": "A company uses the marketing mix to plan how to sell its product effectively. Which of the following best describes the marketing mix?",
-            "options": [
-              "A list of company employees and their roles",
-              "A strategy combining key elements to promote and sell a product",
-              "A financial report showing monthly profits",
-              "A legal document protecting a brand's name"
-            ],
-            "answer": "A strategy combining key elements to promote and sell a product"
-          },
-          {
-            "id": "eng_mc_45",
-            "text": "The Four Ps is a well-known marketing framework. Which group correctly lists all Four Ps?",
-            "options": [
-              "Product, Price, Promotion, Place",
-              "People, Profit, Plan, Promotion",
-              "Price, Publicity, Production, Place",
-              "Product, Profit, People, Platform"
-            ],
-            "answer": "Product, Price, Promotion, Place"
-          },
-          {
-            "id": "eng_mc_46",
-            "text": "When a company designs a new ________, it must consider quality, packaging, and what customer needs it will satisfy.",
-            "options": [
-              "invoice",
-              "product",
-              "regulation",
-              "contract"
-            ],
-            "answer": "product"
-          },
-          {
-            "id": "eng_mc_47",
-            "text": "A luxury brand sets a high ________ for its handbags to signal exclusivity and quality to customers.",
-            "options": [
-              "discount",
-              "quantity",
-              "price",
-              "deadline"
-            ],
-            "answer": "price"
-          },
-          {
-            "id": "eng_mc_48",
-            "text": "The company launched a promotion campaign using social media adverts and celebrity endorsements. What is the main goal of promotion in the marketing mix?",
-            "options": [
-              "To reduce the cost of manufacturing",
-              "To increase awareness and encourage customers to buy",
-              "To improve the quality of the product",
-              "To find new suppliers for raw materials"
-            ],
-            "answer": "To increase awareness and encourage customers to buy"
-          },
-          {
-            "id": "eng_mc_49",
-            "text": "In the marketing mix, 'place' refers to ________.",
-            "options": [
-              "where the company's head office is located",
-              "the country where the product is manufactured",
-              "how and where the product is made available to customers",
-              "the physical size of the product"
-            ],
-            "answer": "how and where the product is made available to customers"
-          },
-          {
-            "id": "eng_mc_50",
-            "text": "Customers chose this phone model because of its impressive ________, such as a long battery life, waterproof design, and high-resolution camera.",
-            "options": [
-              "regulations",
-              "competitors",
-              "features",
-              "liabilities"
-            ],
-            "answer": "features"
-          },
-          {
-            "id": "eng_mc_51",
-            "text": "The company uses a network of warehouses and delivery trucks to ensure efficient distribution of its goods. What does 'distribution' mean here?",
-            "options": [
-              "The design and packaging of a product",
-              "The process of getting products from the producer to the customer",
-              "The advertising strategy used to promote a product",
-              "The method used to set a product's price"
-            ],
-            "answer": "The process of getting products from the producer to the customer"
-          },
-          {
-            "id": "eng_mc_52",
-            "text": "Apple's sleek design and loyal customer base give it a strong ________ over many rival companies.",
-            "options": [
-              "competitive advantage",
-              "financial deficit",
-              "trade restriction",
-              "overhead cost"
-            ],
-            "answer": "competitive advantage"
-          },
-          {
-            "id": "eng_mc_53",
-            "text": "Well-known ________ such as Nike and Coca-Cola spend millions each year to maintain their image and customer loyalty.",
-            "options": [
-              "regulations",
-              "sectors",
-              "brands",
-              "subsidies"
-            ],
-            "answer": "brands"
-          },
-          {
-            "id": "eng_mc_54",
-            "text": "Luxury car advertisements often target customers' ________, showing a lifestyle of success and status rather than focusing on technical details.",
-            "options": [
-              "complaints",
-              "regulations",
-              "debts",
-              "aspirations"
-            ],
-            "answer": "aspirations"
-          },
-          {
-            "id": "eng_mc_55",
-            "text": "________ has made it easier for companies to trade across borders and reach international markets.",
-            "options": ["Privatisation", "Globalisation", "Regulation", "Inflation"],
-            "answer": "Globalisation"
-          },
-          
-          {
-            "id": "eng_mc_56",
-            "text": "One key reason companies move production abroad is to achieve significant cost savings. What does this mean?",
-            "options": ["Spending more on quality", "Reducing the amount of money spent", "Hiring more skilled workers", "Expanding to new markets"],
-            "answer": "Reducing the amount of money spent"
-          },
-          
-          {
-            "id": "eng_mc_57",
-            "text": "Rent, utilities, and staff wages are all examples of a company's ________.",
-            "options": ["revenues", "assets", "operating costs", "investments"],
-            "answer": "operating costs"
-          },
-          
-          {
-            "id": "eng_mc_58",
-            "text": "Instead of hiring in-house staff, the firm decided to use outsourcing for its IT support. What is outsourcing?",
-            "options": ["Training internal employees", "Hiring an external company to do a task", "Moving the head office abroad", "Selling part of the business"],
-            "answer": "Hiring an external company to do a task"
-          },
-          
-          {
-            "id": "eng_mc_59",
-            "text": "A ________ can be a small shop or a large multinational corporation — any organisation that sells goods or services.",
-            "options": ["charity", "business", "government", "union"],
-            "answer": "business"
-          },
-          
-          {
-            "id": "eng_mc_60",
-            "text": "The company automated its internal ________, such as invoicing and stock management, to save time.",
-            "options": ["processes", "brands", "liabilities", "assets"],
-            "answer": "processes"
-          },
-          
-          {
-            "id": "eng_mc_61",
-            "text": "Customers can phone our call centre 24 hours a day to get help. What is a call centre?",
-            "options": ["A factory producing phone equipment", "An office where staff handle large numbers of calls", "A shop selling mobile phones", "A training centre for sales staff"],
-            "answer": "An office where staff handle large numbers of calls"
-          },
-          
-          {
-            "id": "eng_mc_62",
-            "text": "The business hired external ________ to handle its cleaning, security, and catering needs.",
-            "options": ["auditors", "shareholders", "service providers", "regulators"],
-            "answer": "service providers"
-          },
-          
-          {
-            "id": "eng_mc_63",
-            "text": "Moving a company's operations to another country to reduce costs is known as ________.",
-            "options": ["merging", "offshoring", "licensing", "franchising"],
-            "answer": "offshoring"
-          },
-          
-          {
-            "id": "eng_mc_64",
-            "text": "Data entry, payroll processing, and record keeping are typical ________ functions that companies often outsource.",
-            "options": ["front-office", "back-office", "executive", "marketing"],
-            "answer": "back-office"
-          },
-          
-          {
-            "id": "eng_mc_65",
-            "text": "The sports complex offers excellent ________, including a gym, swimming pool, and conference rooms.",
-            "options": ["liabilities", "policies", "facilities", "dividends"],
-            "answer": "facilities"
-          },
-          
-          {
-            "id": "eng_mc_66",
-            "text": "Many companies move factories to Southeast Asia because ________ there are much lower than in Europe.",
-            "options": ["trade tariffs", "tax rates", "labour costs", "interest rates"],
-            "answer": "labour costs"
-          },
-          
-          {
-            "id": "eng_mc_67",
-            "text": "The company went bankrupt largely due to mismanagement. What does this suggest?",
-            "options": ["It was run very efficiently", "It was handled poorly by those in charge", "It had too many employees", "It expanded too quickly into new markets"],
-            "answer": "It was handled poorly by those in charge"
-          },
-          
-          {
-            "id": "eng_mc_68",
-            "text": "All public companies are required to publish accurate financial reporting every year. Why?",
-            "options": ["To advertise their products", "To attract new employees", "To keep investors and regulators informed", "To apply for government grants"],
-            "answer": "To keep investors and regulators informed"
-          },
-          
-          {
-            "id": "eng_mc_69",
-            "text": "Independent ________ were brought in to check whether the company's accounts were accurate.",
-            "options": ["auditors", "marketers", "recruiters", "consultants"],
-            "answer": "auditors"
-          },
-          
-          {
-            "id": "eng_mc_70",
-            "text": "The SEC is a US government agency. What is its main role?",
-            "options": ["Setting interest rates for banks", "Regulating financial markets and protecting investors", "Collecting income tax from businesses", "Approving new product launches"],
-            "answer": "Regulating financial markets and protecting investors"
-          },
-          
-          {
-            "id": "eng_mc_71",
-            "text": "A company's balance sheets show its assets and liabilities at a specific point in time. What are balance sheets?",
-            "options": ["Records of daily sales figures", "Documents showing what a company owns and owes", "Lists of employees and their salaries", "Reports on customer satisfaction"],
-            "answer": "Documents showing what a company owns and owes"
-          },
-          
-          {
-            "id": "eng_mc_72",
-            "text": "Income statements are used to show how much revenue a business earned and what it spent over a period. What do they measure?",
-            "options": ["A company's total debt", "A company's financial performance over time", "The market value of a company's shares", "The number of products sold"],
-            "answer": "A company's financial performance over time"
-          },
-          
-          {
-            "id": "eng_mc_73",
-            "text": "The firm's profit accounts showed strong earnings for the third consecutive year. What do profit accounts record?",
-            "options": ["Money owed to suppliers", "Money the company has gained after expenses", "The company's total borrowing", "Tax payments made to the government"],
-            "answer": "Money the company has gained after expenses"
-          },
-          
-          {
-            "id": "eng_mc_74",
-            "text": "The business closed after its loss accounts revealed it had been spending far more than it earned for two years.",
-            "options": ["documents showing money gained", "records of money lost or negative performance", "reports on employee productivity", "summaries of marketing spend"],
-            "answer": "records of money lost or negative performance"
-          },
-          
-          {
-            "id": "eng_mc_75",
-            "text": "The small business struggled to survive because its monthly ________ — rent, wages, and bills — exceeded its income.",
-            "options": ["revenues", "outgoings", "assets", "profits"],
-            "answer": "outgoings"
-          },
-          
-          {
-            "id": "eng_mc_76",
-            "text": "The human resources department is responsible for ________.",
-            "options": ["managing the company's finances", "recruiting, training, and managing staff", "developing new products", "handling customer complaints"],
-            "answer": "recruiting, training, and managing staff"
-          },
-          
-          {
-            "id": "eng_mc_77",
-            "text": "All ________ must complete a safety training course within their first week of joining the company.",
-            "options": ["clients", "shareholders", "personnel", "suppliers"],
-            "answer": "personnel"
-          },
-          {
-            "id": "eng_mc_78",
-            "text": "After advertising the role, the company received over 200 applications from qualified candidates. What are candidates?",
-            "options": ["People who train new employees", "People applying for a position", "People who inspect workplaces", "People who manage company finances"],
-            "answer": "People applying for a position"
-          },
-          {
-            "id": "eng_mc_79",
-            "text": "Please attach your curriculum vitae when applying for the position. What is a curriculum vitae?",
-            "options": ["A cover letter explaining your motivation", "A document summarising your education and work history", "A list of your professional references", "A certificate proving your qualifications"],
-            "answer": "A document summarising your education and work history"
-          },
-          {
-            "id": "eng_mc_80",
-            "text": "In the US, job seekers typically send a short résumé rather than a full CV. How is a résumé different?",
-            "options": ["It includes a photo of the applicant", "It is longer and more detailed than a CV", "It is a brief summary, usually one page", "It is written by the employer, not the applicant"],
-            "answer": "It is a brief summary, usually one page"
-          },
-          {
-            "id": "eng_mc_81",
-            "text": "The job requires specific qualifications, such as a degree in engineering or a recognised professional certificate.",
-            "options": ["formal achievements proving knowledge or skill", "personal hobbies listed on a CV", "years of work experience", "references from previous employers"],
-            "answer": "formal achievements proving knowledge or skill"
-          },
-          {
-            "id": "eng_mc_82",
-            "text": "She was selected for the role because of her five years of ________ in project management.",
-            "options": ["ambition", "experience", "connections", "training"],
-            "answer": "experience"
-          },
-          {
-            "id": "eng_mc_83",
-            "text": "Employers look for candidates with strong communication skills and the ability to work under pressure. What are skills?",
-            "options": ["Formal certificates from universities", "Natural or learned abilities to do something well", "Years spent working in one company", "Personal interests outside of work"],
-            "answer": "Natural or learned abilities to do something well"
-          },
-          {
-            "id": "eng_mc_84",
-            "text": "The recruitment team screens all applications before inviting candidates to interview. What does 'screens' mean here?",
-            "options": ["Rejects all applicants immediately", "Reviews and filters applications to find suitable ones", "Sends job offers to all candidates", "Publishes applications online"],
-            "answer": "Reviews and filters applications to find suitable ones"
-          },
-          {
-            "id": "eng_mc_85",
-            "text": "We received over 300 applications for the marketing position within 48 hours of posting the job advert.",
-            "options": ["complaints from customers", "requests submitted by job seekers", "invoices from suppliers", "contracts from clients"],
-            "answer": "requests submitted by job seekers"
-          },
-          {
-            "id": "eng_mc_86",
-            "text": "After three rounds of interviews, Sarah was finally hired as the new operations manager.",
-            "options": ["dismissed from her job", "offered and accepted a job", "promoted within the company", "transferred to another department"],
-            "answer": "offered and accepted a job"
-          },
-          {
-            "id": "eng_mc_87",
-            "text": "The finance team manages the company's payroll every month. What does payroll involve?",
-            "options": ["Tracking customer payments", "Calculating and paying employee salaries", "Managing the company's investments", "Preparing the annual budget"],
-            "answer": "Calculating and paying employee salaries"
-          },
-          {
-            "id": "eng_mc_88",
-            "text": "Police arrested a group of counterfeiters who had been producing fake designer goods for years. What are counterfeiters?",
-            "options": ["People who legally manufacture goods", "People who illegally copy and sell fake products", "People who inspect products for quality", "People who design original products"],
-            "answer": "People who illegally copy and sell fake products"
-          },
-          {
-            "id": "eng_mc_89",
-            "text": "The inventor registered several patents to protect her new technology from being copied by competitors.",
-            "options": ["trademarks", "licences", "patents", "copyrights"],
-            "answer": "patents"
-          },
-          {
-            "id": "eng_mc_90",
-            "text": "Companies spend large amounts of money to protect intellectual property. What does this mean?",
-            "options": ["Securing physical goods in warehouses", "Guarding original ideas, inventions, and creative work legally", "Training employees in new technologies", "Preventing staff from leaving the company"],
-            "answer": "Guarding original ideas, inventions, and creative work legally"
-          },
-          {
-            "id": "eng_mc_91",
-            "text": "The author's book is protected by copyright, meaning others cannot reproduce it without permission.",
-            "options": ["a legal right protecting original creative works", "a certificate proving academic qualifications", "a contract between two businesses", "a government tax on creative industries"],
-            "answer": "a legal right protecting original creative works"
-          },
-          {
-            "id": "eng_mc_92",
-            "text": "The golden arches logo and the name 'McDonald's' are both registered trademarks. What do trademarks protect?",
-            "options": ["An inventor's technical designs", "A brand's unique symbols, names, or logos", "An author's written content", "A company's financial records"],
-            "answer": "A brand's unique symbols, names, or logos"
-          },
-          {
-            "id": "eng_mc_93",
-            "text": "Markets in some cities are filled with fakes — products designed to look like expensive brands but sold cheaply.",
-            "options": ["original limited-edition goods", "counterfeit or imitation products", "discounted genuine products", "second-hand branded items"],
-            "answer": "counterfeit or imitation products"
-          },
-          {
-            "id": "eng_mc_94",
-            "text": "The tech company took legal action against a rival for multiple copyright infringements. What are infringements?",
-            "options": ["Formal business agreements", "Violations of legal rights", "Financial penalties paid to the government", "Requests for new patents"],
-            "answer": "Violations of legal rights"
-          },
-          {
-            "id": "eng_mc_95",
-            "text": "The digitisation of medical records has made patient data easier to store and access. What is digitisation?",
-            "options": ["Printing and storing physical documents", "Converting information into digital format", "Deleting outdated files from computers", "Sharing files between different departments"],
-            "answer": "Converting information into digital format"
-          },
-          {
-            "id": "eng_mc_96",
-            "text": "The company introduced secure file sharing systems so employees could collaborate on documents remotely.",
-            "options": ["software tools for sending and accessing files between users", "physical folders used to store printed documents", "programmes that automatically delete old files", "systems that monitor employee internet usage"],
-            "answer": "software tools for sending and accessing files between users"
-          },
-          {
-            "id": "eng_mc_97",
-            "text": "Illegal downloading of films and music costs the entertainment industry billions of dollars each year.",
-            "options": ["Streaming content through official apps", "Copying digital content without payment or permission", "Purchasing content from authorised websites", "Renting physical copies of films"],
-            "answer": "Copying digital content without payment or permission"
-          }
-    ],
+    {
+      "id": "eng_mc_01",
+      "text": "A **joint-stock** company is a special type of business. What makes it different from other companies?",
+      "options": [
+        "Only the government can own it.",
+        "Ownership is split into shares that people can buy and sell.",
+        "The owners must pay all company debts with their own money.",
+        "It cannot sell shares to the public."
+      ],
+      "answer": "Ownership is split into shares that people can buy and sell."
+    },
+    {
+      "id": "eng_mc_02",
+      "text": "At a company's annual meeting, what do **shareholders** usually do?",
+      "options": [
+        "They manage the company every day.",
+        "They check the accounts of other companies.",
+        "They vote on important decisions and choose the board of directors.",
+        "They write contracts for new workers."
+      ],
+      "answer": "They vote on important decisions and choose the board of directors."
+    },
+    {
+      "id": "eng_mc_03",
+      "text": "Why do people often criticise large **multinationals** about taxes?",
+      "options": [
+        "They only sell products in one country.",
+        "They are often accused of moving profits to countries with low taxes.",
+        "They do not have enough money to pay lawyers.",
+        "They are not allowed to trade in other countries."
+      ],
+      "answer": "They are often accused of moving profits to countries with low taxes."
+    },
+    {
+      "id": "eng_mc_04",
+      "text": "A big company creates several **subsidiaries**. What does this mean?",
+      "options": [
+        "These companies are fully independent with no parent company.",
+        "These companies are controlled or owned by a parent company.",
+        "The company is closing and selling everything.",
+        "All the companies have joined into one."
+      ],
+      "answer": "These companies are controlled or owned by a parent company."
+    },
+    {
+      "id": "eng_mc_05",
+      "text": "Which of these is an example of an intangible **asset**?",
+      "options": [
+        "Office chairs and computers.",
+        "Cash and gold.",
+        "Patents, trademarks, and brand reputation.",
+        "Unpaid bills and bank loans."
+      ],
+      "answer": "Patents, trademarks, and brand reputation."
+    },
+    {
+      "id": "eng_mc_06",
+      "text": "Two competing companies decide to make a horizontal **merger**. What usually happens?",
+      "options": [
+        "They get a bigger market share and can work better together.",
+        "The price of all products goes down straight away.",
+        "Both companies close their boards of directors.",
+        "They must become a non-profit organisation."
+      ],
+      "answer": "They get a bigger market share and can work better together."
+    },
+    {
+      "id": "eng_mc_07",
+      "text": "What makes a hostile **acquisition** different from a friendly one?",
+      "options": [
+        "No money is exchanged between the companies.",
+        "The management of the target company does not want the takeover.",
+        "It only happens between small family businesses.",
+        "The buying company helps the other company pay its debts."
+      ],
+      "answer": "The management of the target company does not want the takeover."
+    },
+    {
+      "id": "eng_mc_08",
+      "text": "**Dotcom** companies became very popular in the late 1990s. What kind of businesses were they?",
+      "options": [
+        "Heavy industry and steel factories.",
+        "Farm product exporters.",
+        "Internet and online shopping businesses.",
+        "Traditional banks with physical branches."
+      ],
+      "answer": "Internet and online shopping businesses."
+    },
+    {
+      "id": "eng_mc_09",
+      "text": "Which sentence best describes a successful **entrepreneur**?",
+      "options": [
+        "They try to avoid all risks in business.",
+        "They find gaps in the market and create new ideas, even if they might fail.",
+        "They only follow rules set by big companies.",
+        "They only focus on short-term work and have no long-term plan."
+      ],
+      "answer": "They find gaps in the market and create new ideas, even if they might fail."
+    },
+    {
+      "id": "eng_mc_10",
+      "text": "A good leader tries to **inspire** their team. What does 'inspire' mean here?",
+      "options": [
+        "To force people to work harder by threatening them.",
+        "To give people the confidence and desire to do something great.",
+        "To pay workers more than other companies.",
+        "To ignore the mistakes that employees make."
+      ],
+      "answer": "To give people the confidence and desire to do something great."
+    },
+    {
+      "id": "eng_mc_11",
+      "text": "Companies give bonuses and awards to **motivate** staff. What is the main goal?",
+      "options": [
+        "To reduce the number of workers.",
+        "To make employees feel bored with their work.",
+        "To give employees a reason to work well.",
+        "To stop employees from talking to each other."
+      ],
+      "answer": "To give employees a reason to work well."
+    },
+    {
+      "id": "eng_mc_12",
+      "text": "HR departments organise workshops to **develop talent** in the company. Why is this important?",
+      "options": [
+        "To keep employees at the same skill level for many years.",
+        "To find and improve the skills and abilities of employees.",
+        "To reduce the company's monthly budget.",
+        "To replace all workers with machines."
+      ],
+      "answer": "To find and improve the skills and abilities of employees."
+    },
+    {
+      "id": "eng_mc_13",
+      "text": "Which of these best describes an autocratic **management style**?",
+      "options": [
+        "Employees can make all the decisions on their own.",
+        "Everyone in the team has an equal vote.",
+        "One person makes all the decisions without asking the team.",
+        "There are no clear rules or structure in the workplace."
+      ],
+      "answer": "One person makes all the decisions without asking the team."
+    },
+    {
+      "id": "eng_mc_14",
+      "text": "A manager decides to **delegate** some tasks. What does this mean?",
+      "options": [
+        "The manager does all the hard work alone.",
+        "The manager gives responsibilities to other team members.",
+        "The manager cancels all difficult projects.",
+        "The manager asks customers to fill in company forms."
+      ],
+      "answer": "The manager gives responsibilities to other team members."
+    },
+    {
+      "id": "eng_mc_15",
+      "text": "A manager looks after the work of their **subordinates**. Who are these people?",
+      "options": [
+        "People who own most of the company's shares.",
+        "Consultants who work for a different firm.",
+        "Employees who have a lower position than the manager.",
+        "The board of directors who oversee the CEO."
+      ],
+      "answer": "Employees who have a lower position than the manager."
+    },
+    {
+      "id": "eng_mc_16",
+      "text": "A manager is given the **authority** to sign contracts. What does this mean?",
+      "options": [
+        "They have the legal right and power to make decisions.",
+        "They are physically strong enough to move office equipment.",
+        "They have a lot of free time to read documents.",
+        "They want to become a professional lawyer."
+      ],
+      "answer": "They have the legal right and power to make decisions."
+    },
+    {
+      "id": "eng_mc_17",
+      "text": "A company makes a long-term plan to sell only eco-friendly luxury products. What is this type of plan called?",
+      "options": ["Budget", "Strategy", "Transaction", "Department"],
+      "answer": "Strategy"
+    },
+    {
+      "id": "eng_mc_18",
+      "text": "What is the **planning process** in a business?",
+      "options": [
+        "Hiring new staff for the reception.",
+        "A set of steps to set goals and find the best way to reach them.",
+        "Building a new office.",
+        "Reading emails and answering calls every day."
+      ],
+      "answer": "A set of steps to set goals and find the best way to reach them."
+    },
+    {
+      "id": "eng_mc_19",
+      "text": "A tech company talks about 'emerging **markets**'. What do they usually mean?",
+      "options": [
+        "Grocery shops in the city centre.",
+        "New groups of customers or regions where the economy is growing.",
+        "Documents needed to export goods.",
+        "Internal software used to track staff."
+      ],
+      "answer": "New groups of customers or regions where the economy is growing."
+    },
+    {
+      "id": "eng_mc_20",
+      "text": "What usually happens when there is strong **competition** in a healthy economy?",
+      "options": [
+        "Prices go up and quality goes down.",
+        "Only one company survives in the market.",
+        "Products improve and services become more creative.",
+        "All advertising and marketing stops."
+      ],
+      "answer": "Products improve and services become more creative."
+    },
+    {
+      "id": "eng_mc_21",
+      "text": "In a SWOT analysis, a new law that helps your company's technology is an example of which category?",
+      "options": ["Weaknesses", "Threats", "Opportunities", "Liabilities"],
+      "answer": "Opportunities"
+    },
+    {
+      "id": "eng_mc_22",
+      "text": "A startup shows 20% **growth** in revenue this year. What does this tell us?",
+      "options": [
+        "The company is getting smaller.",
+        "The company is making more money and expanding.",
+        "The company is closing its international offices.",
+        "The company is selling fewer products."
+      ],
+      "answer": "The company is making more money and expanding."
+    },
+    {
+      "id": "eng_mc_23",
+      "text": "New competitors entering the market and an economic recession are examples of external ________ for a business.",
+      "options": ["Threats", "Assets", "Promotions", "Bonuses"],
+      "answer": "Threats"
+    },
+    {
+      "id": "eng_mc_24",
+      "text": "What is the key difference between daily tasks and **strategic objectives**?",
+      "options": [
+        "Strategic objectives are small jobs that take only a few minutes.",
+        "Strategic objectives are long-term goals that match the company's vision.",
+        "Daily tasks are only done by the CEO.",
+        "There is no difference between them."
+      ],
+      "answer": "Strategic objectives are long-term goals that match the company's vision."
+    },
+    {
+      "id": "eng_mc_25",
+      "text": "A manager needs to allocate **resources** for a new project. What can 'resources' include?",
+      "options": [
+        "Only the bins in the office.",
+        "Money, time, staff, and equipment.",
+        "The personal hobbies of employees' families.",
+        "The weather outside the factory."
+      ],
+      "answer": "Money, time, staff, and equipment."
+    },
+    {
+      "id": "eng_mc_26",
+      "text": "In business language, who does the term **'fat cats'** usually refer to?",
+      "options": ["Successful new interns", "Executives who are paid too much", "Loyal long-term customers", "Hardworking factory staff"],
+      "answer": "Executives who are paid too much"
+    },
+    {
+      "id": "eng_mc_27",
+      "text": "A CEO's **pay package** normally includes more than just a salary. What else is usually included?",
+      "options": ["Free office supplies", "Stock options and bonuses", "Unpaid extra work hours", "Personal grocery bills"],
+      "answer": "Stock options and bonuses"
+    },
+    {
+      "id": "eng_mc_28",
+      "text": "Which of these is a non-monetary **reward** for an employee?",
+      "options": ["A cash prize", "A monthly salary increase", "Extra days off work", "A formal debt notice"],
+      "answer": "Extra days off work"
+    },
+    {
+      "id": "eng_mc_29",
+      "text": "What is the main purpose of a **pension** plan?",
+      "options": ["To pay for daily transport to work", "To give you money to live on after you retire", "To fund a short holiday abroad", "To buy new furniture for the office"],
+      "answer": "To give you money to live on after you retire"
+    },
+    {
+      "id": "eng_mc_30",
+      "text": "In business, what is a **'golden parachute'**?",
+      "options": ["A private jet for business travel", "A large payment an executive receives if they lose their job", "Free skydiving lessons for managers", "A very expensive office chair"],
+      "answer": "A large payment an executive receives if they lose their job"
+    },
+    {
+      "id": "eng_mc_31",
+      "text": "When an employee leaves a company, they may agree on a **severance deal**. What is it?",
+      "options": ["A new contract to stay at the company longer", "An agreement about the money the employee receives when they leave", "A list of their responsibilities in a future job", "A financial penalty for quitting the job"],
+      "answer": "An agreement about the money the employee receives when they leave"
+    },
+    {
+      "id": "eng_mc_32",
+      "text": "What is the main job of **remuneration committees** in a company?",
+      "options": ["To set the price of company products", "To decide how much senior managers should be paid", "To plan the office cleaning schedule", "To choose which software the IT team should buy"],
+      "answer": "To decide how much senior managers should be paid"
+    },
+    {
+      "id": "eng_mc_33",
+      "text": "What do **compensation committees** do inside a large company?",
+      "options": [
+        "They manage daily tax reports and accounting.",
+        "They set salaries, bonuses, and benefits for top executives.",
+        "They plan social events and office parties.",
+        "They give legal help to employees in personal cases."
+      ],
+      "answer": "They set salaries, bonuses, and benefits for top executives."
+    },
+    {
+      "id": "eng_mc_34",
+      "text": "Regular exercise has many ________ for your health, such as less stress and better sleep.",
+      "options": ["habits", "benefits", "obstacles", "symptoms"],
+      "answer": "benefits"
+    },
+    {
+      "id": "eng_mc_35",
+      "text": "Japan is called an MEDC. What does this tell us about the country?",
+      "options": [
+        "It has a very high birth rate.",
+        "It mostly depends on farming.",
+        "It has a high standard of living and good infrastructure.",
+        "It receives a lot of money from other countries as aid."
+      ],
+      "answer": "It has a high standard of living and good infrastructure."
+    },
+    {
+      "id": "eng_mc_36",
+      "text": "Which of these is a common problem in an LEDC?",
+      "options": ["High income per person", "Good public healthcare for everyone", "Not enough clean water for people", "Low unemployment rates"],
+      "answer": "Not enough clean water for people"
+    },
+    {
+      "id": "eng_mc_37",
+      "text": "Oil, clean water, and timber (wood) are all examples of ________.",
+      "options": ["manufactured goods", "natural resources", "industrial waste", "economic policies"],
+      "answer": "natural resources"
+    },
+    {
+      "id": "eng_mc_38",
+      "text": "Big construction projects like dams and motorways often harm the environment. What is the most common problem?",
+      "options": [
+        "They reduce carbon emissions.",
+        "They improve soil quality.",
+        "They destroy natural habitats.",
+        "They increase the number of plants and animals."
+      ],
+      "answer": "They destroy natural habitats."
+    },
+    {
+      "id": "eng_mc_39",
+      "text": "Factories, power plants, and oil refineries are all examples of ________.",
+      "options": ["residential zones", "farming units", "industrial facilities", "commercial markets"],
+      "answer": "industrial facilities"
+    },
+    {
+      "id": "eng_mc_40",
+      "text": "What is a country's Gross Domestic Product (GDP)?",
+      "options": [
+        "The total foreign aid the country receives each year.",
+        "The average salary earned by citizens.",
+        "The total value of all goods and services produced in a country.",
+        "The total number of people who have jobs."
+      ],
+      "answer": "The total value of all goods and services produced in a country."
+    },
+    {
+      "id": "eng_mc_41",
+      "text": "Groups of ________ are protesting against the new oil pipeline because it could damage local ecosystems.",
+      "options": ["economists", "urbanists", "geographers", "environmentalists"],
+      "answer": "environmentalists"
+    },
+    {
+      "id": "eng_mc_42",
+      "text": "One major result of fast industrialisation in LEDCs is more air and water ________.",
+      "options": ["tourism", "agriculture", "education", "pollution"],
+      "answer": "pollution"
+    },
+    {
+      "id": "eng_mc_43",
+      "text": "Illegal cutting of forests **endangers** many rare plants and animals. What does 'endangers' mean?",
+      "options": ["protects", "threatens", "supports", "increases"],
+      "answer": "threatens"
+    },
+    {
+      "id": "eng_mc_44",
+      "text": "A company uses the **marketing mix** to plan how to sell its product. What is the marketing mix?",
+      "options": [
+        "A list of company employees and their roles.",
+        "A plan that uses key elements together to promote and sell a product.",
+        "A financial report that shows monthly profits.",
+        "A legal paper that protects a brand's name."
+      ],
+      "answer": "A plan that uses key elements together to promote and sell a product."
+    },
+    {
+      "id": "eng_mc_45",
+      "text": "The **Four Ps** is a well-known marketing framework. Which group correctly lists all Four Ps?",
+      "options": [
+        "Product, Price, Promotion, Place",
+        "People, Profit, Plan, Promotion",
+        "Price, Publicity, Production, Place",
+        "Product, Profit, People, Platform"
+      ],
+      "answer": "Product, Price, Promotion, Place"
+    },
+    {
+      "id": "eng_mc_46",
+      "text": "When a company designs a new ________, it must think about quality, packaging, and what the customer needs.",
+      "options": ["invoice", "product", "regulation", "contract"],
+      "answer": "product"
+    },
+    {
+      "id": "eng_mc_47",
+      "text": "A luxury brand sets a very high ________ for its handbags to show exclusivity and quality.",
+      "options": ["discount", "quantity", "price", "deadline"],
+      "answer": "price"
+    },
+    {
+      "id": "eng_mc_48",
+      "text": "A company ran a **promotion** campaign using social media and famous people. What is the main goal of promotion?",
+      "options": [
+        "To lower the cost of making a product.",
+        "To make more people aware of the product and want to buy it.",
+        "To improve the quality of the product.",
+        "To find new suppliers for materials."
+      ],
+      "answer": "To make more people aware of the product and want to buy it."
+    },
+    {
+      "id": "eng_mc_49",
+      "text": "In the marketing mix, what does '**place**' refer to?",
+      "options": [
+        "Where the company's head office is located.",
+        "The country where the product is manufactured.",
+        "How and where customers can find and buy the product.",
+        "The physical size of the product."
+      ],
+      "answer": "How and where customers can find and buy the product."
+    },
+    {
+      "id": "eng_mc_50",
+      "text": "Customers chose this phone because of its great ________, like long battery life and a high-quality camera.",
+      "options": ["regulations", "competitors", "features", "liabilities"],
+      "answer": "features"
+    },
+    {
+      "id": "eng_mc_51",
+      "text": "The company uses warehouses and delivery trucks for the **distribution** of its goods. What does 'distribution' mean here?",
+      "options": [
+        "The design and packaging of a product.",
+        "The process of getting products from the maker to the customer.",
+        "The advertising method used to promote a product.",
+        "The way a company decides the price of a product."
+      ],
+      "answer": "The process of getting products from the maker to the customer."
+    },
+    {
+      "id": "eng_mc_52",
+      "text": "Apple's design and its loyal customers give it a strong ________ over other companies.",
+      "options": ["competitive advantage", "financial deficit", "trade restriction", "overhead cost"],
+      "answer": "competitive advantage"
+    },
+    {
+      "id": "eng_mc_53",
+      "text": "Famous ________ like Nike and Coca-Cola spend millions every year to keep their image strong.",
+      "options": ["regulations", "sectors", "brands", "subsidies"],
+      "answer": "brands"
+    },
+    {
+      "id": "eng_mc_54",
+      "text": "Luxury car adverts often show a lifestyle of success to connect with customers' ________.",
+      "options": ["complaints", "regulations", "debts", "aspirations"],
+      "answer": "aspirations"
+    },
+    {
+      "id": "eng_mc_55",
+      "text": "________ has made it easier for companies to sell products and do business in other countries.",
+      "options": ["Privatisation", "Globalisation", "Regulation", "Inflation"],
+      "answer": "Globalisation"
+    },
+    {
+      "id": "eng_mc_56",
+      "text": "One key reason companies move production abroad is to achieve **cost savings**. What does this mean?",
+      "options": [
+        "Spending more money on quality control.",
+        "Spending less money on production.",
+        "Hiring more skilled workers.",
+        "Entering new international markets."
+      ],
+      "answer": "Spending less money on production."
+    },
+    {
+      "id": "eng_mc_57",
+      "text": "Rent, electricity bills, and staff wages are all examples of a company's ________.",
+      "options": ["revenues", "assets", "operating costs", "investments"],
+      "answer": "operating costs"
+    },
+    {
+      "id": "eng_mc_58",
+      "text": "Instead of hiring its own IT staff, the firm uses **outsourcing** for IT support. What is outsourcing?",
+      "options": [
+        "Training your own employees in new skills.",
+        "Paying an external company to do a job for you.",
+        "Moving the head office to another country.",
+        "Selling part of the business to investors."
+      ],
+      "answer": "Paying an external company to do a job for you."
+    },
+    {
+      "id": "eng_mc_59",
+      "text": "A ________ can be a small local shop or a large corporation — any organisation that sells goods or services.",
+      "options": ["charity", "business", "government", "union"],
+      "answer": "business"
+    },
+    {
+      "id": "eng_mc_60",
+      "text": "The company automated its internal ________, such as invoicing and stock management, to save time.",
+      "options": ["processes", "brands", "liabilities", "assets"],
+      "answer": "processes"
+    },
+    {
+      "id": "eng_mc_61",
+      "text": "Customers can phone our **call centre** 24 hours a day to get help. What is a call centre?",
+      "options": [
+        "A factory that produces phone equipment.",
+        "An office where staff answer a large number of phone calls.",
+        "A shop that sells mobile phones.",
+        "A place where sales staff receive their training."
+      ],
+      "answer": "An office where staff answer a large number of phone calls."
+    },
+    {
+      "id": "eng_mc_62",
+      "text": "The business hired external ________ to take care of its cleaning, security, and food services.",
+      "options": ["auditors", "shareholders", "service providers", "regulators"],
+      "answer": "service providers"
+    },
+    {
+      "id": "eng_mc_63",
+      "text": "Moving a company's operations to another country to reduce costs is called ________.",
+      "options": ["merging", "offshoring", "licensing", "franchising"],
+      "answer": "offshoring"
+    },
+    {
+      "id": "eng_mc_64",
+      "text": "Entering data, processing payroll, and keeping records are typical ________ jobs that companies often outsource.",
+      "options": ["front-office", "back-office", "executive", "marketing"],
+      "answer": "back-office"
+    },
+    {
+      "id": "eng_mc_65",
+      "text": "The sports centre offers excellent ________, including a gym, a swimming pool, and conference rooms.",
+      "options": ["liabilities", "policies", "facilities", "dividends"],
+      "answer": "facilities"
+    },
+    {
+      "id": "eng_mc_66",
+      "text": "Many companies move their factories to Southeast Asia because ________ there are much lower than in Europe.",
+      "options": ["trade tariffs", "tax rates", "labour costs", "interest rates"],
+      "answer": "labour costs"
+    },
+    {
+      "id": "eng_mc_67",
+      "text": "The company closed mainly because of **mismanagement**. What does this suggest?",
+      "options": [
+        "The company was run very efficiently.",
+        "The people in charge made poor decisions.",
+        "The company had too many employees.",
+        "The company expanded too quickly into new markets."
+      ],
+      "answer": "The people in charge made poor decisions."
+    },
+    {
+      "id": "eng_mc_68",
+      "text": "All public companies must publish accurate **financial reporting** every year. What is the main reason?",
+      "options": [
+        "To advertise their products to new customers.",
+        "To attract talented new employees.",
+        "To keep investors and regulators properly informed.",
+        "To apply for grants from the government."
+      ],
+      "answer": "To keep investors and regulators properly informed."
+    },
+    {
+      "id": "eng_mc_69",
+      "text": "The company brought in independent ________ to check if its financial accounts were accurate.",
+      "options": ["auditors", "marketers", "recruiters", "consultants"],
+      "answer": "auditors"
+    },
+    {
+      "id": "eng_mc_70",
+      "text": "The SEC is a US government body. What is its main role?",
+      "options": [
+        "Setting interest rates for banks.",
+        "Controlling financial markets and protecting investors.",
+        "Collecting income tax from businesses.",
+        "Approving new product launches by companies."
+      ],
+      "answer": "Controlling financial markets and protecting investors."
+    },
+    {
+      "id": "eng_mc_71",
+      "text": "A company's **balance sheet** shows its financial situation at a specific point in time. What information does it include?",
+      "options": [
+        "A record of daily sales numbers.",
+        "What the company owns and what it owes.",
+        "A list of all employees and their salaries.",
+        "Reports about customer satisfaction."
+      ],
+      "answer": "What the company owns and what it owes."
+    },
+    {
+      "id": "eng_mc_72",
+      "text": "**Income statements** show a company's revenue and costs over a period of time. What do they measure?",
+      "options": [
+        "The company's total debt.",
+        "How well the company performed financially.",
+        "The market value of the company's shares.",
+        "The number of products that were sold."
+      ],
+      "answer": "How well the company performed financially."
+    },
+    {
+      "id": "eng_mc_73",
+      "text": "The company's **profit accounts** showed strong results for the third year in a row. What do profit accounts record?",
+      "options": [
+        "Money the company owes to its suppliers.",
+        "Money the company made after paying all its costs.",
+        "The total amount the company has borrowed.",
+        "Tax payments made to the government."
+      ],
+      "answer": "Money the company made after paying all its costs."
+    },
+    {
+      "id": "eng_mc_74",
+      "text": "The business closed because its **loss accounts** showed it had spent much more than it earned for two years. What are loss accounts?",
+      "options": [
+        "Documents showing money the company gained.",
+        "Records showing money the company lost or negative results.",
+        "Reports about how productive employees were.",
+        "Summaries of the company's marketing costs."
+      ],
+      "answer": "Records showing money the company lost or negative results."
+    },
+    {
+      "id": "eng_mc_75",
+      "text": "The small company had problems because its monthly ________ — rent, salaries, and bills — were more than its income.",
+      "options": ["revenues", "outgoings", "assets", "profits"],
+      "answer": "outgoings"
+    },
+    {
+      "id": "eng_mc_76",
+      "text": "The **human resources** department is responsible for which area?",
+      "options": [
+        "Managing the company's finances and accounts.",
+        "Finding, training, and managing staff.",
+        "Developing new products for the market.",
+        "Handling complaints from customers."
+      ],
+      "answer": "Finding, training, and managing staff."
+    },
+    {
+      "id": "eng_mc_77",
+      "text": "All ________ must complete a safety training course in their first week at the company.",
+      "options": ["clients", "shareholders", "personnel", "suppliers"],
+      "answer": "personnel"
+    },
+    {
+      "id": "eng_mc_78",
+      "text": "The company got over 200 applications from **candidates** after posting the job advert. Who are candidates?",
+      "options": [
+        "People who train new employees.",
+        "People who are applying for a job.",
+        "People who inspect workplaces for safety.",
+        "People who manage the company's finances."
+      ],
+      "answer": "People who are applying for a job."
+    },
+    {
+      "id": "eng_mc_79",
+      "text": "Please send your **curriculum vitae** with your application. What is a curriculum vitae?",
+      "options": [
+        "A letter explaining why you want the job.",
+        "A document that shows your education and work history.",
+        "A list of people who can recommend you.",
+        "A certificate that proves your qualifications."
+      ],
+      "answer": "A document that shows your education and work history."
+    },
+    {
+      "id": "eng_mc_80",
+      "text": "In the US, job seekers often send a **résumé** instead of a full CV. What is the main difference?",
+      "options": [
+        "It includes a photo of the applicant.",
+        "It is longer and more detailed than a CV.",
+        "It is a short summary, usually just one page.",
+        "It is written by the employer, not the applicant."
+      ],
+      "answer": "It is a short summary, usually just one page."
+    },
+    {
+      "id": "eng_mc_81",
+      "text": "The job requires specific **qualifications**, such as an engineering degree or a professional certificate. What are qualifications?",
+      "options": [
+        "Formal achievements that prove your knowledge or skill.",
+        "Personal hobbies listed on a CV.",
+        "The total years someone has worked.",
+        "Recommendations from past employers."
+      ],
+      "answer": "Formal achievements that prove your knowledge or skill."
+    },
+    {
+      "id": "eng_mc_82",
+      "text": "She got the job because of her five years of ________ in project management.",
+      "options": ["ambition", "experience", "connections", "training"],
+      "answer": "experience"
+    },
+    {
+      "id": "eng_mc_83",
+      "text": "Employers look for candidates with strong communication **skills**. What are skills?",
+      "options": [
+        "Formal certificates from universities.",
+        "Natural or learned abilities to do something well.",
+        "The number of years spent working at one company.",
+        "Personal interests that someone has outside of work."
+      ],
+      "answer": "Natural or learned abilities to do something well."
+    },
+    {
+      "id": "eng_mc_84",
+      "text": "The team **screens** all applications before inviting anyone to interview. What does 'screens' mean here?",
+      "options": [
+        "Rejects all applicants immediately.",
+        "Reviews and filters applications to find the most suitable ones.",
+        "Sends job offers to all candidates at once.",
+        "Posts all applications online for the public to see."
+      ],
+      "answer": "Reviews and filters applications to find the most suitable ones."
+    },
+    {
+      "id": "eng_mc_85",
+      "text": "The company received over 300 **applications** for the marketing position within 48 hours. What are applications?",
+      "options": [
+        "Complaints sent by unhappy customers.",
+        "Forms or documents sent by people who want the job.",
+        "Invoices sent by suppliers.",
+        "Contracts agreed with business clients."
+      ],
+      "answer": "Forms or documents sent by people who want the job."
+    },
+    {
+      "id": "eng_mc_86",
+      "text": "After three rounds of interviews, Sarah was **hired** as the new operations manager. What does 'hired' mean?",
+      "options": [
+        "She was dismissed from her position.",
+        "She was offered and accepted the job.",
+        "She was promoted within the company.",
+        "She was moved to a different department."
+      ],
+      "answer": "She was offered and accepted the job."
+    },
+    {
+      "id": "eng_mc_87",
+      "text": "The finance team manages the company's **payroll** every month. What does payroll involve?",
+      "options": [
+        "Tracking payments received from customers.",
+        "Calculating and paying employee salaries.",
+        "Managing the company's long-term investments.",
+        "Preparing the company's annual budget."
+      ],
+      "answer": "Calculating and paying employee salaries."
+    },
+    {
+      "id": "eng_mc_88",
+      "text": "Police arrested a group of **counterfeiters** who had been making fake designer goods for years. Who are counterfeiters?",
+      "options": [
+        "People who legally manufacture goods in factories.",
+        "People who illegally copy and sell fake products.",
+        "People who check the quality of products.",
+        "People who create original product designs."
+      ],
+      "answer": "People who illegally copy and sell fake products."
+    },
+    {
+      "id": "eng_mc_89",
+      "text": "The inventor registered several ________ to stop competitors from copying her new technology.",
+      "options": ["trademarks", "licences", "patents", "copyrights"],
+      "answer": "patents"
+    },
+    {
+      "id": "eng_mc_90",
+      "text": "Companies spend a lot of money to protect their **intellectual property**. What does this mean?",
+      "options": [
+        "Keeping physical goods safe inside warehouses.",
+        "Legally protecting original ideas, inventions, and creative work.",
+        "Training employees to use new technology.",
+        "Preventing skilled workers from leaving the company."
+      ],
+      "answer": "Legally protecting original ideas, inventions, and creative work."
+    },
+    {
+      "id": "eng_mc_91",
+      "text": "The author's book is protected by **copyright**, so others cannot copy it without permission. What is copyright?",
+      "options": [
+        "A legal right that protects original creative work.",
+        "A certificate that proves academic qualifications.",
+        "A contract signed between two businesses.",
+        "A government tax on the creative industries."
+      ],
+      "answer": "A legal right that protects original creative work."
+    },
+    {
+      "id": "eng_mc_92",
+      "text": "The golden arches logo and the name 'McDonald's' are both registered **trademarks**. What do trademarks protect?",
+      "options": [
+        "An inventor's technical designs.",
+        "A brand's unique symbols, names, or logos.",
+        "An author's written content.",
+        "A company's private financial records."
+      ],
+      "answer": "A brand's unique symbols, names, or logos."
+    },
+    {
+      "id": "eng_mc_93",
+      "text": "Some markets are full of **fakes** — items made to look like expensive brands but sold at a low price. What are fakes?",
+      "options": [
+        "Original limited-edition products.",
+        "Counterfeit or imitation products.",
+        "Genuine products sold at a discount.",
+        "Second-hand branded items."
+      ],
+      "answer": "Counterfeit or imitation products."
+    },
+    {
+      "id": "eng_mc_94",
+      "text": "The tech company took legal action against a rival for copyright **infringements**. What are infringements?",
+      "options": [
+        "Formal business agreements between two companies.",
+        "Actions that break or violate someone's legal rights.",
+        "Financial penalties paid to the government.",
+        "Requests to register new patents."
+      ],
+      "answer": "Actions that break or violate someone's legal rights."
+    },
+    {
+      "id": "eng_mc_95",
+      "text": "Hospitals are using **digitisation** to store patient records more easily. What is digitisation?",
+      "options": [
+        "Printing and storing paper documents in folders.",
+        "Converting information into a digital format.",
+        "Deleting old files permanently from computers.",
+        "Sharing printed files between different departments."
+      ],
+      "answer": "Converting information into a digital format."
+    },
+    {
+      "id": "eng_mc_96",
+      "text": "The company introduced secure **file sharing** systems so employees could work on documents from anywhere. What are file sharing systems?",
+      "options": [
+        "Tools for sending and accessing files between users.",
+        "Physical folders for storing printed documents.",
+        "Programs that automatically delete old files.",
+        "Systems that monitor employee internet use."
+      ],
+      "answer": "Tools for sending and accessing files between users."
+    },
+    {
+      "id": "eng_mc_97",
+      "text": "**Illegal downloading** of films and music costs the entertainment industry billions of dollars each year. What is illegal downloading?",
+      "options": [
+        "Watching content through official streaming apps.",
+        "Copying digital content without paying or getting permission.",
+        "Buying content legally from authorised websites.",
+        "Renting physical copies of films from a shop."
+      ],
+      "answer": "Copying digital content without paying or getting permission."
+    }
+  ],
     "fill_blank": [
-      { "id": "m_fb_01", "text": "A right angle measures ___ degrees.",                    "answer": "90"         }
+      { "id": "eng_fb_00", "text": "If many people buy shares in a business, it is called a j__________ company.", "answer": "joint-stock" },
+      { "id": "eng_fb_01", "text": "— Who decides if the company gets a new CEO?\n— The s___________, because they own parts of the company.", "answer": "shareholders" },
+      { "id": "eng_fb_02", "text": "M_____________ are companies that work in many different countries at the same time.", "answer": "Multinationals" },
+      { "id": "eng_fb_03", "text": "Apple, Google, and Amazon all own smaller companies in other countries. These smaller companies are called s___________.", "answer": "subsidiaries" },
+      { "id": "eng_fb_04", "text": "Look at the balance sheet. The company's a_____ include its office building, computers, and $2 million in the bank.", "answer": "assets" },
+      { "id": "eng_fb_05", "text": "BUSINESS NEWS: M______ between two rival supermarket chains create the country's largest food retailer.", "answer": "Mergers" },
+      { "id": "eng_fb_06", "text": "The tech giant grew quickly, not by starting new products, but through a___________ — buying up smaller firms.", "answer": "acquisitions" },
+      { "id": "eng_fb_07", "text": "In the late 1990s, everyone was excited about d______. Then, in 2001, most of them crashed and lost all their money.", "answer": "dotcoms" },
+      { "id": "eng_fb_08", "text": "She left her job at the bank to start her own café. People like her, who take risks to build a business, are called e____________.", "answer": "entrepreneurs" },
+      { "id": "eng_fb_09", "text": "The best leaders don't just give orders — they i______ their team to want to do great work.", "answer": "inspire" },
+      { "id": "eng_fb_10", "text": "— Why did sales go up this month?\n— We gave staff a bonus for every new client. It really helped m_______ them.", "answer": "motivate" },
+      { "id": "eng_fb_11", "text": "A manager's job is not only to complete tasks — it is also to d______ t_____ by helping employees grow and improve.", "answer": "develop talent" },
+      { "id": "eng_fb_12", "text": "Sara's m_________ s____ is very relaxed — she trusts her team and never micromanages.", "answer": "management style" },
+      { "id": "eng_fb_13", "text": "A manager who tries to do everything alone will fail. The best ones know how to d_______ work to the right people.", "answer": "delegate" },
+      { "id": "eng_fb_14", "text": "The director sent a message to all her s___________ asking them to attend the Monday meeting.", "answer": "subordinates" },
+      { "id": "eng_fb_15", "text": "Only the project manager has the a________ to approve extra spending.", "answer": "authority" },
+      { "id": "eng_fb_16", "text": "Before spending any money, the board agreed on a clear s_______ for the next three years.", "answer": "strategy" },
+      { "id": "eng_fb_17", "text": "Every autumn, the leadership team goes through a p_______ p______ to set goals for the coming year.", "answer": "planning process" },
+      { "id": "eng_fb_18", "text": "Our products sell well in Europe, but now we want to enter m______ in Southeast Asia.", "answer": "markets" },
+      { "id": "eng_fb_19", "text": "There is strong c__________ in the smartphone industry — dozens of brands fight for customers every day.", "answer": "competition" },
+      { "id": "eng_fb_20", "text": "The team spotted great o____________ in the new market — there were many customers and very few competitors.", "answer": "opportunities" },
+      { "id": "eng_fb_21", "text": "QUARTERLY REPORT: The company recorded 15% g_____ in revenue compared to last year.", "answer": "growth" },
+      { "id": "eng_fb_22", "text": "Identify the t______ in this situation: energy prices are rising, and our main supplier just increased costs by 30%.", "answer": "threats" },
+      { "id": "eng_fb_23", "text": "At the annual meeting, the CEO presented the company's s________ o_________ — the three big goals they want to achieve by 2027.", "answer": "strategic objectives" },
+      { "id": "eng_fb_24", "text": "We have a good plan, but we don't have the r________ to make it happen — no budget and not enough staff.", "answer": "resources" },
+      { "id": "eng_fb_25", "text": "People often call very highly paid executives \"f__ c___\".", "answer": "fat cats" },
+      { "id": "eng_fb_26", "text": "Senior managers often receive very large p__ p_______ including salary, bonuses, and company cars.", "answer": "pay packages" },
+      { "id": "eng_fb_27", "text": "Employees receive r______ such as bonuses or extra days off when they reach their targets.", "answer": "rewards" },
+      { "id": "eng_fb_28", "text": "After 30 years of work, she gets a good monthly p______.", "answer": "pension" },
+      { "id": "eng_fb_29", "text": "The director received a \"g_____ p________\" worth millions when he resigned.", "answer": "golden parachute" },
+      { "id": "eng_fb_30", "text": "He agreed on a s________ d___ after the company let him go.", "answer": "severance deal" },
+      { "id": "eng_fb_31", "text": "The r___________ c__________ decides how much to pay top executives.", "answer": "remuneration committees" },
+      { "id": "eng_fb_32", "text": "In the US, c___________ c__________ are responsible for setting executive pay.", "answer": "compensation committees" },
+      { "id": "eng_fb_33", "text": "Employees receive many b_______ such as health insurance and paid holidays.", "answer": "benefits" },
+      { "id": "eng_fb_34", "text": "The UK is a M___ with a high standard of living.", "answer": "medc" },
+      { "id": "eng_fb_35", "text": "Many people in a L___ do not have clean water or electricity.", "answer": "LEDC" },
+      { "id": "eng_fb_36", "text": "The country is rich in n______ r________ like oil and gold.", "answer": "natural resources" },
+      { "id": "eng_fb_37", "text": "The government funded many c___________ p_______ to build new roads.", "answer": "construction projects" },
+      { "id": "eng_fb_38", "text": "The city built new i_________ f_________ to create more jobs.", "answer": "industrial facilities" },
+      { "id": "eng_fb_39", "text": "A country's g____ d_______ p_______ measures the total value of its economy.", "answer": "gross domestic product" },
+      { "id": "eng_fb_40", "text": "E________________ are worried about the damage caused by new factories.", "answer": "environmentalists" },
+      { "id": "eng_fb_41", "text": "Factory waste causes serious p________ in rivers and air.", "answer": "pollution" },
+      { "id": "eng_fb_42", "text": "Cutting down forests e________ many animals and plants.", "answer": "endangers" },
+      { "id": "eng_fb_43", "text": "The m________ m__ includes product, price, place, and promotion.", "answer": "marketing mix" },
+      { "id": "eng_fb_44", "text": "Marketers often use the f___ P_ as a basic planning tool.", "answer": "four Ps" },
+      { "id": "eng_fb_45", "text": "The p_______ must meet the needs of the customer.", "answer": "product" },
+      { "id": "eng_fb_46", "text": "The p____ of the item must be fair for the customer.", "answer": "price" },
+      { "id": "eng_fb_47", "text": "Good p________ helps customers learn about a new product.", "answer": "promotion" },
+      { "id": "eng_fb_48", "text": "The p____ is where and how customers can buy the product.", "answer": "place" },
+      { "id": "eng_fb_49", "text": "The phone has many useful f_______ that attract buyers.", "answer": "features" },
+      { "id": "eng_fb_50", "text": "Fast d___________ ensures products reach customers on time.", "answer": "distribution" },
+      { "id": "eng_fb_51", "text": "Good quality gives the company a c__________ a________.", "answer": "competitive advantage" },
+      { "id": "eng_fb_52", "text": "Strong b_____ make customers trust and choose their products.", "answer": "brands" },
+      { "id": "eng_fb_53", "text": "Luxury products appeal to people's a__________.", "answer": "aspirations" },
+
+      { "id": "eng_fb_54", "text": "G____________ has connected economies and businesses across the world.", "answer": "globalisation" },
+      { "id": "eng_fb_55", "text": "Moving production abroad can bring big c___ s______.", "answer": "cost savings" },
+      { "id": "eng_fb_56", "text": "The company reduced its o________ c_____ by moving to a smaller office.", "answer": "operating costs" },
+      { "id": "eng_fb_57", "text": "Many firms use o__________ to reduce costs and focus on core tasks.", "answer": "outsourcing" },
+      { "id": "eng_fb_58", "text": "A b_______ must adapt to changes in the market.", "answer": "business" },
+      { "id": "eng_fb_59", "text": "The company improved its p________ to work more efficiently.", "answer": "processes" },
+      { "id": "eng_fb_60", "text": "Customers can reach support through the company's c___ c_____.", "answer": "call centre" },
+      { "id": "eng_fb_61", "text": "The firm hired external s_______ p________ for IT support.", "answer": "service providers" },
+      { "id": "eng_fb_62", "text": "O_________ means moving business operations to another country.", "answer": "offshoring" },
+      { "id": "eng_fb_63", "text": "The b___-o_____ team handles data entry and administration.", "answer": "back-office" },
+      { "id": "eng_fb_64", "text": "The company built new f_________ to handle more production.", "answer": "facilities" },
+      { "id": "eng_fb_65", "text": "Low l_____ c_____ attract companies to developing countries.", "answer": "labour costs" },
+
+      { "id": "eng_fb_66", "text": "The company failed due to m____________ of funds.", "answer": "mismanagement" },
+      { "id": "eng_fb_67", "text": "Good f_________ r________ keeps investors informed about a company's health.", "answer": "financial reporting" },
+      { "id": "eng_fb_68", "text": "Independent a_______ check if the company's accounts are correct.", "answer": "auditors" },
+      { "id": "eng_fb_69", "text": "The S__ regulates stock markets and protects investors in the US.", "answer": "SEC" },
+      { "id": "eng_fb_70", "text": "B______ s______ show what a company owns and what it owes.", "answer": "balance sheets" },
+      { "id": "eng_fb_71", "text": "I______ s__________ show how much money a company earned.", "answer": "income statements" },
+      { "id": "eng_fb_72", "text": "The p_____ a_______ showed the company made money last year.", "answer": "profit accounts" },
+      { "id": "eng_fb_73", "text": "The l___ a_______ showed the company spent more than it earned.", "answer": "loss accounts" },
+      { "id": "eng_fb_74", "text": "The company's o________ include rent, salaries, and utility bills.", "answer": "outgoings" },
+
+      { "id": "eng_fb_75", "text": "The h____ r________ department handles hiring and employee issues.", "answer": "human resources" },
+      { "id": "eng_fb_76", "text": "The p________ manager is responsible for staff training.", "answer": "personnel" },
+      { "id": "eng_fb_77", "text": "Five c_________ applied for the management position.", "answer": "candidates" },
+      { "id": "eng_fb_78", "text": "Please send your c_________ v____ before the interview.", "answer": "curriculum vitae" },
+      { "id": "eng_fb_79", "text": "Her r_____ listed all her past jobs and qualifications.", "answer": "resumé" },
+      { "id": "eng_fb_80", "text": "You need the right q_____________ to apply for this job.", "answer": "qualifications" },
+      { "id": "eng_fb_81", "text": "Employers look for candidates with relevant e_________.", "answer": "experience" },
+      { "id": "eng_fb_82", "text": "Strong communication s_____ are important in any job.", "answer": "skills" },
+      { "id": "eng_fb_83", "text": "HR s______ applications to find the best candidates.", "answer": "screens" },
+      { "id": "eng_fb_84", "text": "Over 100 a___________ were received for the position.", "answer": "applications" },
+      { "id": "eng_fb_85", "text": "She was h____ after a successful interview.", "answer": "hired" },
+      { "id": "eng_fb_86", "text": "The finance team manages the p______ for all employees.", "answer": "payroll" },
+
+      { "id": "eng_fb_87", "text": "C_____________ copy famous brands and sell fake goods illegally.", "answer": "counterfeiters" },
+      { "id": "eng_fb_88", "text": "Companies use p______ to protect their new inventions.", "answer": "patents" },
+      { "id": "eng_fb_89", "text": "Businesses must p______ i___________ p_______ to stay competitive.", "answer": "protect intellectual property" },
+      { "id": "eng_fb_90", "text": "The book is protected by c________ so you cannot copy it freely.", "answer": "copyright" },
+      { "id": "eng_fb_91", "text": "Company logos are protected by t_________.", "answer": "trademarks" },
+      { "id": "eng_fb_92", "text": "The market was full of f____ designer bags and watches.", "answer": "fakes" },
+      { "id": "eng_fb_93", "text": "The company sued its rival for copyright i____________.", "answer": "infringements" },
+      { "id": "eng_fb_94", "text": "D___________ has made it easier to copy and share music online.", "answer": "digitisation" },
+      { "id": "eng_fb_95", "text": "Many people use f___ s______ s______ to share music and films.", "answer": "file sharing systems" },
+      { "id": "eng_fb_96", "text": "D__________ music without paying is illegal in many countries.", "answer": "downloading" }
     ],
     "open_question": [
-      { "id": "m_oq_01", "text": "Explain the difference between a prime number and a composite number. Give one example of each." }
+      {
+        "id": "eng_oq_01",
+        "text": "What is a joint-stock company? Is it owned by one person or many people?"
+      },
+      {
+        "id": "eng_oq_02",
+        "text": "Who are shareholders? Do they own a part of a company or do they just work there?"
+      },
+      {
+        "id": "eng_oq_03",
+        "text": "What are multinationals? Do these companies operate in only one country or many countries?"
+      },
+      {
+        "id": "eng_oq_04",
+        "text": "What are subsidiaries? Are they independent companies or are they controlled by a larger company?"
+      },
+      {
+        "id": "eng_oq_05",
+        "text": "What are assets in business? Give two simple examples of things a company owns."
+      },
+      {
+        "id": "eng_oq_06",
+        "text": "What happens during mergers? Do two companies join together or do they close down?"
+      },
+      {
+        "id": "eng_oq_07",
+        "text": "What are acquisitions? Does one company buy another company, or do they just share an office?"
+      },
+      {
+        "id": "eng_oq_08",
+        "text": "What are dotcoms? Do these companies sell products in a physical shop or on the internet?"
+      },
+      {
+        "id": "eng_oq_09",
+        "text": "Who are entrepreneurs? Are they people who start their own business or people who work for the government?"
+      },
+      {
+        "id": "eng_oq_10",
+        "text": "Imagine you are a leader. How do you inspire your team? Do you give them a great speech or do you just give them more work?"
+      },
+      {
+        "id": "eng_oq_11",
+        "text": "What helps you to motivate yourself every morning: a high salary or a job you really love?"
+      },
+      {
+        "id": "eng_oq_12",
+        "text": "When a manager wants to develop talent, do they help their employees learn new skills or do they fire them?"
+      },
+      {
+        "id": "eng_oq_13",
+        "text": "Think about your teacher's management style. Is it very strict or is it friendly and relaxed?"
+      },
+      {
+        "id": "eng_oq_14",
+        "text": "If you have too much work, do you delegate tasks to others or do you try to do everything alone?"
+      },
+      {
+        "id": "eng_oq_15",
+        "text": "Who are subordinates? Are they the people who work under a manager or the people who own the company?"
+      },
+      {
+        "id": "eng_oq_16",
+        "text": "In a hospital, who has more authority to give medical orders: a senior doctor or a person at the reception?"
+      },
+      {
+        "id": "eng_oq_17",
+        "text": "When you play a game like chess, do you use a specific strategy to win or do you move your pieces randomly?"
+      },
+      {
+        "id": "eng_oq_18",
+        "text": "Think about a school trip. Why is the planning process important before the trip begins?"
+      },
+      {
+        "id": "eng_oq_19",
+        "text": "Companies sell their products in different markets. Does Samsung sell more phones in the tech market or the food market?"
+      },
+      {
+        "id": "eng_oq_20",
+        "text": "In the world of soft drinks, who is the biggest competition for Coca-Cola?"
+      },
+      {
+        "id": "eng_oq_21",
+        "text": "If you learn English perfectly, what kind of new job opportunities will you have in the future?"
+      },
+      {
+        "id": "eng_oq_22",
+        "text": "When we talk about a company's growth, do we mean it is getting smaller or is it opening more offices and hiring more people?"
+      },
+      {
+        "id": "eng_oq_23",
+        "text": "What is one of the biggest threats to a business: having many happy customers or a new company with cheaper prices?"
+      },
+      {
+        "id": "eng_oq_24",
+        "text": "A company wants to be number one in the world. Is this called a strategic objective or just a small daily task?"
+      },
+      {
+        "id": "eng_oq_25",
+        "text": "To build a big house, you need money, workers, and tools. What do we call these things in business: resources or hobbies?"
+      },
+      {
+        "id": "eng_oq_26",
+        "text": "What do we call wealthy executives who receive very high salaries even if their company is failing?"
+      },
+      {
+        "id": "eng_oq_27",
+        "text": "When a top manager is hired, they agree on a total salary including bonuses and benefits. Is this called a pay package or a tax return?"
+      },
+      {
+        "id": "eng_oq_28",
+        "text": "What does a company give to employees to thank them for good performance?"
+      },
+      {
+        "id": "eng_oq_29",
+        "text": "What is the money paid regularly by a company to a former employee who has retired from work?"
+      },
+      {
+        "id": "eng_oq_30",
+        "text": "If a top executive is forced to leave a company, they often receive a large sum of money as a final payment. What is it?"
+      },
+      {
+        "id": "eng_oq_31",
+        "text": "What is the specific financial agreement or contract made when an employee's job is terminated: a severance deal or a marketing plan?"
+      },
+      {
+        "id": "eng_oq_32",
+        "text": "Which group in a large company decides how much the top directors should be paid: the remuneration committee or the cleaning department?"
+      },
+      {
+        "id": "eng_oq_33",
+        "text": "In American English, what do we call the group of people who decide on executive salaries and bonuses: the compensation committee or the security team?"
+      }
     ]
   },
   "geography": {

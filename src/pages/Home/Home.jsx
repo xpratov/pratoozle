@@ -3,7 +3,7 @@ import useGameStore from "../../store/useGameStore";
 
 const SUBJECTS = [
   "ENGLISH",
-  "GEOGRAPHY",
+  "IQTISODIYOT NAZARIYASI",
 ];
 
 const TEAM_COLORS = {
@@ -77,6 +77,14 @@ export default function LandingPage() {
     return () => timers.forEach(clearTimeout);
   }, []);
 
+  const handleStartGame = ()=>{
+    if (selected=="ENGLISH"){
+      startGame(selected.toLowerCase())
+    }else{
+      alert("Soon...\n\n(Savollar tayyor emas)")
+    }
+  }
+
   return (
     <div style={{
       height: "100vh", width: "100%", overflow: "hidden",
@@ -86,7 +94,7 @@ export default function LandingPage() {
     }}>
       {/* Progress bar */}
       <div style={{ display: "flex", height: 6, flexShrink: 0 }}>
-        <div style={{ width: "32%", background: "var(--yellow)" }} />
+        <div style={{ width: "13%", background: "var(--yellow)" }} />
         <div style={{ flex: 1,      background: "var(--teal-dark)" }} />
       </div>
 
@@ -102,7 +110,7 @@ export default function LandingPage() {
           transform: t.logo ? "translateY(0)" : "translateY(-12px)",
           transition: "opacity 0.5s ease, transform 0.5s ease",
         }}>
-          KINETIC GALLERY
+          PRATOOZLE
         </span>
       </header>
 
@@ -110,7 +118,7 @@ export default function LandingPage() {
       <main style={{
         flex: 1, minHeight: 0,
         display: "flex", flexDirection: "column",
-        alignItems: "center", justifyContent: "center",
+        alignItems: "center", 
         padding: "0 clamp(20px,4vw,48px) clamp(16px,3vh,36px)",
         textAlign: "center",
       }}>
@@ -123,6 +131,7 @@ export default function LandingPage() {
           opacity:   t.title ? 1 : 0,
           transform: t.title ? "translateY(0)" : "translateY(-24px)",
           transition: "opacity 0.6s ease, transform 0.6s cubic-bezier(.34,1.2,.64,1)",
+          marginTop: 20,
         }}>
           QUIZ GAME
         </h1>
@@ -190,7 +199,7 @@ export default function LandingPage() {
           onMouseLeave={() => { setStartHov(false); setStartPres(false); }}
           onMouseDown={() => setStartPres(true)}
           onMouseUp={() => setStartPres(false)}
-          onClick={() => startGame(selected.toLowerCase())}
+          onClick={() => handleStartGame()}
           style={{
             marginTop: "clamp(22px,4.5vh,64px)",
             fontFamily: "var(--f-regular)", fontWeight: 600,
