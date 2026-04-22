@@ -21,17 +21,17 @@ function buildTiles(subject) {
   const bank = allQuestions[subject.toLowerCase()] ?? {};
 
   // Pick question tiles: 4 mc, 6 fill_blank, 5 open_question (= 15)
-  const mcPool  = shuffle(bank.multiple_choice ?? []).slice(0, 4).map(q => ({
+  const mcPool  = shuffle(bank.multiple_choice ?? []).slice(0, 7).map(q => ({
     ...q, qtype: "mc", points: randPts(5, 15),
   }));
-  const fbPool  = shuffle(bank.fill_blank ?? []).slice(0, 6).map(q => ({
+  const fbPool  = shuffle(bank.fill_blank ?? []).slice(0, 8).map(q => ({
     ...q, qtype: "fill_blank", points: randPts(10, 20),
   }));
-  const oqPool  = shuffle(bank.open_question ?? []).slice(0, 5).map(q => ({
-    ...q, qtype: "open_question", points: randPts(15, 25),
-  }));
+  // const oqPool  = shuffle(bank.open_question ?? []).slice(0, 5).map(q => ({
+  //   ...q, qtype: "open_question", points: randPts(15, 25),
+  // }));
 
-  const questionTiles = shuffle([...mcPool, ...fbPool, ...oqPool]);
+  const questionTiles = shuffle([...mcPool, ...fbPool]);
 
   // Special tiles: 2 bomb, 2 bonus, 1 swap (= 5)
   const specials = shuffle([

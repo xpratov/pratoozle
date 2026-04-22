@@ -60,9 +60,9 @@ function TeamScoreBlock({ teamNum, score, isActive }) {
   const tc = TEAM_COLORS[teamNum];
   return (
     <div style={{
-      flex: 1, display: "flex", flexDirection: "column",
+      flex: 1, display: "flex", flexDirection: "flex",
       alignItems: "center", justifyContent: "center",
-      padding: "10px 0 12px", gap: 4, position: "relative",
+      padding: "10px 0 12px", gap: 40, position: "relative",
       background: isActive ? tc.teamBg : "transparent",
       transition: "background 0.3s",
     }}>
@@ -215,7 +215,7 @@ export default function GameBoard() {
       animation: "pageIn 0.4s ease both",
     }}>
       {/* ── Header ── */}
-      <header style={{
+      {/* <header style={{
         background: "var(--teal)",
         height: "clamp(48px,6vh,62px)",
         display: "flex", alignItems: "center",
@@ -247,7 +247,7 @@ export default function GameBoard() {
             <Settings size={20} strokeWidth={2} />
           </button>
         </div>
-      </header>
+      </header> */}
 
       {/* ── Score Bar ── */}
       <div style={{
@@ -266,7 +266,7 @@ export default function GameBoard() {
         flex: 1, minHeight: 0,
         display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
-        padding: "clamp(10px,1.8vh,20px) clamp(14px,3vw,32px)",
+        padding: "0 clamp(10px,1.8vh,20px) clamp(14px,3vw,32px)",
         gap: "clamp(10px,1.8vh,18px)",
       }}>
         {/* Turn Badge */}
