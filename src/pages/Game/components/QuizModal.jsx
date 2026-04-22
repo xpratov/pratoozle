@@ -33,8 +33,8 @@ function TimerRing({ timeLeft }) {
   const warn   = timeLeft <= 10;
   const offset = CIRCUMFERENCE * (1 - timeLeft / TIMER_TOTAL);
   return (
-    <div style={{ display:"flex", alignItems:"center", justifyContent:"center", marginBottom:22, position:"relative" }}>
-      <svg width="72" height="72" viewBox="0 0 56 56" style={{ transform:"rotate(-90deg)" }}>
+    <div style={{ position:"relative", display:"inline-flex", alignItems:"center", justifyContent:"center" }}>
+      <svg width="60" height="60" viewBox="0 0 56 56" style={{ transform:"rotate(-90deg)" }}>
         <circle cx="28" cy="28" r="24" fill="none" stroke="#f0f0ee" strokeWidth="4.5"/>
         <circle cx="28" cy="28" r="24" fill="none"
           stroke={warn ? "var(--red)" : "var(--teal)"}
@@ -44,7 +44,7 @@ function TimerRing({ timeLeft }) {
         />
       </svg>
       <span style={{
-        position:"absolute", fontFamily:"var(--f-condensed)", fontWeight:800, fontSize:24,
+        position:"absolute", fontFamily:"var(--f-condensed)", fontWeight:800, fontSize:20,
         color: warn ? "var(--red)" : "var(--teal-dark)", transition:"color 0.4s",
         animation: warn ? "pulseTxt 0.7s ease infinite alternate" : "none",
       }}>
@@ -199,6 +199,7 @@ function ResultScreen({ isCorrect, correctAnswer, points, onContinue }) {
           +{points} points
         </div>
       ) : (
+        // ── CHANGED: correctAnswer shown for ALL question types (mc + fill_blank)
         <div style={{ marginBottom:28 }}>
           <div style={{ fontSize:16, color:"var(--muted)", marginBottom:6 }}>Correct answer:</div>
           <div style={{ fontFamily:"var(--f-condensed)", fontWeight:700, fontSize:24, color:"var(--red)" }}>
@@ -323,6 +324,7 @@ const BADGE_COLORS = {
 export default function QuizModal() {
   const activeQuestion  = useGameStore((s) => s.activeQuestion);
   const activeSpecial   = useGameStore((s) => s.activeSpecial);
+  const activeTileId    = useGameStore((s) => s.activeTileId);
   const submitAnswer    = useGameStore((s) => s.submitAnswer);
   const confirmSpecial  = useGameStore((s) => s.confirmSpecial);
 
@@ -392,7 +394,35 @@ export default function QuizModal() {
       {/* ── Answering phase ── */}
       {phase === "answering" && (
         <>
-          <TimerRing timeLeft={timeLeft}/>
+          {/* ── CHANGED: Header row — Question ID (left) + Timer (right) */}
+          <div style={{
+            display:"flex", alignItems:"center", justifyContent:"space-between",
+            marginBottom:18, animation:"badgeIn 0.4s ease 0.1s both",
+          }}>
+            {/* Question ID badge */}
+            <div style={{
+              display:"flex", alignItems:"center", gap:6,
+              background:"#f3f4f6", borderRadius:100,
+              padding:"6px 16px",
+            }}>
+              <span style={{
+                fontFamily:"var(--f-condensed)", fontWeight:700,
+                fontSize:13, letterSpacing:"0.12em",
+                textTransform:"uppercase", color:"#6b7280",
+              }}>
+                #
+              </span>
+              <span style={{
+                fontFamily:"var(--f-condensed)", fontWeight:800,
+                fontSize:18, color:"var(--teal-dark)",
+              }}>
+                {q.id}
+              </span>
+            </div>
+
+            {/* Timer ring — top right */}
+            <TimerRing timeLeft={timeLeft}/>
+          </div>
 
           {/* Badge */}
           <div style={{ marginBottom:18 }}>
@@ -402,7 +432,7 @@ export default function QuizModal() {
               fontFamily:"var(--f-condensed)", fontWeight:700, fontSize:15,
               letterSpacing:"0.14em", textTransform:"uppercase",
               padding:"7px 20px", borderRadius:100,
-              animation:"badgeIn 0.4s ease 0.15s both",
+              animation:"badgeIn 0.4s ease 0.2s both",
             }}>
               {BADGE_LABELS[q.qtype] ?? q.qtype} · {q.points} pts
             </span>
@@ -517,7 +547,8 @@ export default function QuizModal() {
       {phase === "result" && (
         <ResultScreen
           isCorrect={isCorrect}
-          correctAnswer={q.qtype === "fill_blank" ? q.answer : "—"}
+          // ── CHANGED: pass q.answer for all question types (mc + fill_blank)
+          correctAnswer={q.answer}
           points={q.points}
           onContinue={() => submitAnswer(isCorrect)}
         />
