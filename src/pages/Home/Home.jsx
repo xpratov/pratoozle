@@ -99,7 +99,7 @@ export default function LandingPage() {
       </div>
 
       {/* Logo */}
-      <header style={{ padding: "clamp(14px,2vh,22px) clamp(20px,3vw,40px) 0", flexShrink: 0 }}>
+      <header style={{ padding: "clamp(14px,2vh,22px) clamp(20px,3vw,40px) 0", flexShrink: 0, display: "flex", justifyContent: "space-between" }}>
         <span style={{
           fontFamily: "var(--f-condensed)", fontWeight: 700,
           fontSize: "clamp(13px, 1.2vw, 16px)",
@@ -111,6 +111,9 @@ export default function LandingPage() {
           transition: "opacity 0.5s ease, transform 0.5s ease",
         }}>
           PRATOOZLE
+        </span>
+        <span style={{fontSize: 20}}>
+          Pratov.uz
         </span>
       </header>
 
