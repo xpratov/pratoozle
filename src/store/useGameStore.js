@@ -22,10 +22,10 @@ function buildTiles(subject) {
 
   // Pick question tiles: 4 mc, 6 fill_blank, 5 open_question (= 15)
   const mcPool  = shuffle(bank.multiple_choice ?? []).slice(0, 7).map(q => ({
-    ...q, qtype: "mc", points: randPts(5, 15),
+    ...q, qtype: "mc", points: randPts(15, 20),
   }));
   const fbPool  = shuffle(bank.fill_blank ?? []).slice(0, 8).map(q => ({
-    ...q, qtype: "fill_blank", points: randPts(10, 20),
+    ...q, qtype: "fill_blank", points: randPts(20, 25),
   }));
   // const oqPool  = shuffle(bank.open_question ?? []).slice(0, 5).map(q => ({
   //   ...q, qtype: "open_question", points: randPts(15, 25),
@@ -35,10 +35,10 @@ function buildTiles(subject) {
 
   // Special tiles: 2 bomb, 2 bonus, 1 swap (= 5)
   const specials = shuffle([
-    { stype: "bomb",  points: randPts(5, 25) },
-    { stype: "bomb",  points: randPts(5, 25) },
-    { stype: "bonus", points: randPts(5, 25) },
-    { stype: "bonus", points: randPts(5, 25) },
+    { stype: "bomb",  points: randPts(5, 20) },
+    { stype: "bomb",  points: randPts(5, 20) },
+    { stype: "bonus", points: randPts(5, 20) },
+    { stype: "bonus", points: randPts(5, 20) },
     { stype: "swap" },
   ]);
 
