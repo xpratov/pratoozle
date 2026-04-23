@@ -564,7 +564,7 @@ function ModalShell({ children, shake }) {
       position:"absolute", inset:0,
       background:"rgba(10,100,88,0.50)",
       backdropFilter:"blur(8px)", WebkitBackdropFilter:"blur(8px)",
-      display:"flex", alignItems:"center", justifyContent:"center",
+      display:"flex", alignItems:"top", justifyContent:"center",
       padding:"clamp(12px,2vw,24px)", zIndex:100,
     }}>
       <div style={{
