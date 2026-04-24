@@ -307,6 +307,10 @@ export default function GameBoard() {
           ))}
         </div>
       </main>
+      {/* Ads blanked */}
+          <div style={{backgroundColor: "red", position: "absolute", right: 180, top: 114, width: 200, maxHeight: 400, writingMode: "vertical-rl", textAlign: "center", fontSize: 28, padding: 10, paddingRight: 60, borderRadius: 12, backgroundColor: "#0d9480", color: "white"}}>
+            Bu yerda sizning reklamangiz bo'lishi mumkin edi :)
+          </div>
     </div>
   );
 }
