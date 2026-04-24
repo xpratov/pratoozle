@@ -270,7 +270,7 @@ export default function GameBoard() {
         gap: "clamp(10px,1.8vh,18px)",
       }}>
         {/* Turn Badge */}
-        <div style={{
+        {/* <div style={{
           display: "inline-flex", alignItems: "center", gap: 9,
           border: "1.5px solid var(--teal)",
           borderRadius: 100, padding: "7px 20px",
@@ -288,7 +288,7 @@ export default function GameBoard() {
           }}>
             TEAM {currentTeam}'S TURN — PICK A TILE
           </span>
-        </div>
+        </div> */}
 
         {/* Tile Grid */}
         <div style={{

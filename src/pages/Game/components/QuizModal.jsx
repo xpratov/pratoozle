@@ -65,7 +65,7 @@ function spawnRipple(el) {
 }
 
 // ── MC Option ─────────────────────────────────────────────
-function OptionBtn({ label, selected, disabled, onClick, delay }) {
+function OptionBtn({ label, selected, disabled, onClick, delay, order }) {
   const [hov, setHov]   = useState(false);
   const [pres, setPres] = useState(false);
   const ref = useRef(null);
@@ -93,7 +93,10 @@ function OptionBtn({ label, selected, disabled, onClick, delay }) {
         animation:`optIn 0.4s ease ${delay}s both`,
         userSelect:"none",
       }}>
-      {label}
+        <span style={{backgroundColor: "#0d9480", position: "absolute", left: 0, top: 0, width: 20, color: "white"}}>
+          {order+1}
+        </span>
+        {label}
     </button>
   );
 }
@@ -461,6 +464,7 @@ export default function QuizModal() {
                   selected={selected === opt} disabled={false}
                   onClick={() => setSelected(opt)}
                   delay={0.18 + i * 0.07}
+                  order={i}
                 />
               ))}
             </div>
@@ -576,6 +580,7 @@ function ModalShell({ children, shake }) {
         maxHeight:"94vh", overflowY:"auto",
         boxShadow:"0 24px 80px rgba(0,0,0,0.18)",
       }}>
+        
         {/* Shimmer on open */}
         <div style={{
           position:"absolute", top:0, left:0, right:0, bottom:0, pointerEvents:"none",
@@ -588,6 +593,7 @@ function ModalShell({ children, shake }) {
         @keyframes qIn   { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
         @keyframes btnIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
       `}</style>
+      
     </div>
   );
 }
